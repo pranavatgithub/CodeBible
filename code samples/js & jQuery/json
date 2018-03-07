@@ -1,0 +1,12 @@
+JSON
+---------
+
+{
+"firstName" : "Frank",
+"lastName" : "Smith",
+"phone" : "503-555-1212"
+}
+
+//key - value pairs should be quoted
+
+so firstName : 'Frank' is incorrect

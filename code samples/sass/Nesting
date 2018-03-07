@@ -1,0 +1,49 @@
+Nesting
+-------------
+
+header[role="banner"] {                // header[role="banner"]{margin: 20px 0 30px 0;border-bottom: 4px solid #333;}
+		margin: 20px 0 30px 0;
+		border-bottom: 4px solid #333;
+		
+		#logo {					       //header[role="banner"] #logo{float: left;margin: 0 20px 0 0;} logo in headers
+				float: left;
+				margin: 0 20px 0 0;
+				img {          // header[role="banner"] #logo img{display:block......etc}
+					display: block;
+					opacity: .95;
+					}
+				}
+		h1 {
+				padding: 15px 0;
+				font-size: 54px;
+				line-height: 1;
+				font-family: Jubilat, Georgia, serif;
+				font-weight: bold;
+			}
+}
+
+NESTING OF ELEMS
+----------------
+
+font: {                 means font-size:54px,font-family:jubilat etc
+size: 54px;
+family: Jubilat, Georgia, serif;
+weight: bold;
+}
+
+
+background: {
+color: #ea4c89;
+size: 16px 16px;
+image: url(sasquatch.png);
+repeat: no-repeat;
+position: top left;
+}
+
+text: {
+transform: uppercase;
+decoration: underline;
+align: center;
+}
+
+

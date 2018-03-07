@@ -1,0 +1,98 @@
+consuming a json
+========================================
+
+import React, {Component} from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+
+const list = [
+    {
+        title: 'React',
+        url: 'https://facebook.github.io/react/',
+        author: 'Jordan Walke',
+        num_comments: 3,
+        points: 4,
+        objectID: 0,
+    },
+    {
+        title: 'Redux',
+        url: 'https://github.com/reactjs/redux',
+        author: 'Dan Abramov, Andrew Clark',
+        num_comments: 2,
+        points: 5,
+        objectID: 1,
+    },
+];
+const list2=list.map((item)=> {                //can define like this or can compute this (list.map function in class component in the place of list 2)
+    return <span key={item.objectID}>{item.title} </span>
+}); 
+
+class App extends Component {
+    render() {
+        var name = "pranav";
+        return (
+            <div className="App">
+                <div className="App-header">
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h2>Welcome to React <span style={color}>{name}</span></h2>
+                </div>
+                <p className="App-intro">
+                    edit <code>src/App.js</code> and save to reload.
+                </p>
+                <br/>
+                {list2}  //{ list.map((item)=> {return <span key={item.objectID}>{item.title} </span>} } //here key is useful for div
+            </reference>
+        );
+    }
+}
+
+export default App;
+===================================================================================
+
+using a function for multiple elements
+
+var buttonlist=(id,title)=>{
+    return (
+        <button key={id}>{title}</button>
+    )
+};
+
+{list.map((item,index)=>{
+                    return buttonlist(item.objectID,item.title);
+                })}
+====================================================================================
+some other methods
+=======================
+
+const list2 = list.map((item) => {
+    return <span key={item.objectID}>{item.title} </span>
+});
+function Tested(item){
+    return (
+        <button>{item.prop.title}</button>)
+
+}
+
+class App extends Component {
+    render() {
+        var name = "pranav";
+        return (
+            <div className="App">
+                <div className="App-header">
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h2>Welcome to React <span>{name}</span></h2>
+                </div>
+                <p className="App-intro">
+                    edit <code>src/App.js</code> and save to reload.
+                </p>
+                <br/>
+                {
+                    list.map(function (item) {
+                    return <Tested prop={item}/>;  //here is how we pass objects to top function (to use list2 just use {list2} here)
+                })}
+            </div>
+        );
+    }
+}
+

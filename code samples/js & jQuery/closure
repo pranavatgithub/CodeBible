@@ -1,0 +1,22 @@
+function addTogether() {
+    var args=Array.from(arguments);
+    var x;
+    if(args.length===2){
+        x=args[0];
+        var y=args[1];
+        if(typeof x !=="number" || typeof  y !=="number"){
+            return undefined;
+        }   return x+y;
+    }else{
+        x=args[0];
+        if(typeof x !=="number"){
+            return undefined;
+        }
+        return function(y){     //<-------------this guy
+          if(typeof y !=="number"){
+            return undefined;
+          }return x+y;
+        };
+    }
+}
+addTogether(2)(3);  //return 5 how???  first trigger  addTogether(2) ---> it will return  function(y)...  again it will call that function with next set of closure(3)

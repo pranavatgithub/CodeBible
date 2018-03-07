@@ -1,0 +1,9 @@
+NG-SRC
+--------------
+$scope a="test.gif";
+
+<img src="{{a}}"> throws 1 404 (but works) 2 requests will fire 1.at dom completion 2.at anguale completion
+
+so to prevent this 2 request issue we need to use ng-src
+
+<img ng-src="{{a}}">  //no 404 only 1 request pakka

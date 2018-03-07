@@ -1,0 +1,5 @@
+let values = [-25, -50, -75, -100]
+
+console.log(Math.max(...values, 0)); // return 0
+
+console.log(Math.max(...values)); // -25

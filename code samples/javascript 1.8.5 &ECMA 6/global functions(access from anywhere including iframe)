@@ -1,0 +1,4 @@
+ window.NodeAdder = function (fromiframe){
+}
+
+call it as NodeAdder(arg here)

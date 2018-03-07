@@ -1,0 +1,57 @@
+Use some other classes items HAS-A  relation
+-------------------------------------
+    employee has an address
+
+class Employee{  
+int id;  
+String name;  
+Address address;//Address is a class  
+...  
+} 
+
+
+example
+----------------
+class 1
+
+public class Address {  
+String city,state,country;  
+  
+public Address(String city, String state, String country) {  
+    this.city = city;  
+    this.state = state;  
+    this.country = country;  
+}  
+  
+}  
+
+class 2
+
+public class Emp {  
+int id;  
+String name;  
+Address address;  // emp has an address
+  
+public Emp(int id, String name,Address address) {  
+    this.id = id;  
+    this.name = name;  
+    this.address=address;  
+}  
+  
+void display(){  
+System.out.println(id+" "+name);  
+System.out.println(address.city+" "+address.state+" "+address.country);  
+}  
+  
+public static void main(String[] args) {  
+Address address1=new Address("gzb","UP","india");  
+Address address2=new Address("gno","UP","india");  
+  
+Emp e=new Emp(111,"varun",address1); //passing address obj to emp() 
+Emp e2=new Emp(112,"arun",address2);  
+      
+e.display();  
+e2.display();  
+      
+}  
+}  

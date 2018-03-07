@@ -1,0 +1,29 @@
+Window Events
+----------------------------
+1)load
+2)unload
+3)scroll
+4)resize
+
+
+--------------------------------
+open a new window
+----------------
+
+open(URL, name, properties) //syntax
+
+var a=open('products.html','theWin','width=300,height=300');
+
+a.close(); //close window
+ //theWin is the window name & width height are properties of window other props are:-
+
+left,top,scrollbars (visibility of scroll),status(control statusbar at bottom),toolbar,location (URL visible /not ),menubar('browser menu')
+
+window operations
+---------------------------------------------
+
+var newWin = open('products.html','theWin','width=300,height=300');
+
+newWin.close();
+
+blur(),focus(),moveBy(),moveTo(),resizeBy(),resizeTo(),scrollBy(100,200),scrollTo("")

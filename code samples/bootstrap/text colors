@@ -1,0 +1,8 @@
+just like btn we can define button colors
+---------------
+as in buttons <button class="btn btn-success"></button>
+
+we can define <div class="text-primary"></div> 
+text-success
+text-danger
+text-info and so on

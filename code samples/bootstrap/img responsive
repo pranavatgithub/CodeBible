@@ -1,0 +1,3 @@
+responsive image that fit your screen
+----------------------------------------
+<img src="https://bit.ly/fcc-running-cats" class="img-responsive"> //automatically resized

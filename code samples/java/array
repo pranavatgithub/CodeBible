@@ -1,0 +1,14 @@
+ARRAY
+------------
+
+int a[]={1,2,3,4,5,6};
+
+iterating an array FOR EACH
+-----------------------------
+
+for (int i:a)
+{ 
+  System.out.println(i);        //o/p 1,2,3,4,5,6 
+}
+
+

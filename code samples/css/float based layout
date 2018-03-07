@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="leftbar"></div>
+    <div class="rightcontent"></div>
+</div>
+
+<style>
+
+    .leftbar{
+        width:xyz px;
+        float:left;
+            }
+    .rightcontent{
+        width:xyz px;
+        float:right;
+            }
+    .container:after{
+        content:"";
+        display:table;
+        clear:both;  // clear both right and left float props u can give clear:right if u just want to clear float righted elems
+        }
+
+</style>

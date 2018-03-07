@@ -1,0 +1,11 @@
+NG_BIND
+-------------------
+
+js
+----
+ var Rank=0;
+        $scope.Rank=Rank;
+
+html
+---------
+<div ng-bind="Rank"></div>  //instantly prints change in variable

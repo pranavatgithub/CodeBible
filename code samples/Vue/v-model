@@ -1,0 +1,17 @@
+v-model
+=============
+special thing to bind form elements
+
+example...
+
+    <input type="text" v-model="test"/>  //this is called 2-way-data-binding !! because when u change this below variable will change,when u change the variable this value will change 
+
+<script>
+export default {
+    data () {
+      return {
+        test: 'helloss'
+      }
+    }
+  }
+</script>

@@ -1,0 +1,11 @@
+<img src="https://www.w3schools.com/tags/planets.gif" width="145" height="126"
+     alt="Planets" usemap="#planetmap">
+
+<map name="planetmap">
+  <area shape="rect" coords="0,0,82,126" alt="Sun" id="Sun" onclick="runfunc(this.id)">
+  <area shape="circle" coords="90,58,3" alt="Mercury" id="Mercury" onclick="runfunc(this.id)">
+  <area shape="circle" coords="124,58,8" alt="Venus" id="Venus" onclick="runfunc(this.id)">
+</map>
+
+
+if u want to click a specific portion of image use this

@@ -1,0 +1,38 @@
+app.set app.get app.disable so on-------------
+===============================================
+set a global settings for an app
+
+app.set("author","pranav");
+
+how to get it???
+
+app.get("author");
+
+APP DISABLE / ENABLE
+=====================
+
+app.set(name, true) can be write as    app.enable(name)
+
+app.set(name,false) can be write as    app.disable(name)
+
+CHECK ENABLED/DISABLED
+======================
+
+app.disabled('name'); ---------> true if disabled else false
+
+SET ENV
+==========
+to specify the app mode -->
+
+•	 development
+•	 test
+•	 stage
+•	 preview
+•	 production
+
+
+app.set('env', 'preview');
+
+console.log(app.get("env"));
+
+

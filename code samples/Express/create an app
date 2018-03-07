@@ -1,0 +1,5 @@
+ sudo npm install express-generator -g   ---->>>create generator first
+express -h   ---------------> manual
+express --view=hbs --css=sass ExpressExplore    ---------->> create an app in current dir, we can set css preprocessors,view engine,git etc here 
+
+pretty awesome package !!!!

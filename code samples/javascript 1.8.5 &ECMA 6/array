@@ -1,0 +1,16 @@
+facts
+------
+
+var fish = ["Lion", , "Angel"];   //fish[1] is undefined just put 2 commas for this
+
+var myList = ['home', , 'school', ];  //length=3 last comma ignored
+
+var myList = ['home', , 'school', , ]; //length 4
+
+create an array with 9 entries null
+
+var a=Array(9).fill(null)
+
+  const squares = this.state.squares.slice(); //clone array
+
+

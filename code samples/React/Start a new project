@@ -1,0 +1,16 @@
+npm install -g create-react-app //install this initiator
+
+create-react-app app-name //done!!
+
+commands of create-react-app
+
+
+// Runs the application in http://localhost:3000
+
+npm start
+
+// Runs the tests
+npm test
+
+// Builds the application for production
+npm run build

@@ -1,0 +1,4 @@
+ lsof -w -n -i tcp:8080
+then kill -9 pid
+
+lsof -i:2000 is enough

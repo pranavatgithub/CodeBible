@@ -1,0 +1,60 @@
+function makeRequest(url, timeout = 2000, callback = function() {}) {  //default value will be taken if arg is not passed
+
+    // the rest of the function
+
+}
+
+// uses default timeout
+makeRequest("/foo", undefined, function(body) {  ---> so pass undefined to mention it is empty arg[]
+    doSomething(body);
+});
+
+// uses default timeout and callback
+makeRequest("/foo");
+
+// doesn't use default timeout
+makeRequest("/foo", null, function(body) {
+    doSomething(body);
+});
+
+
+strict mode
+=======================
+
+function mixArgs(first, second) {
+    "use strict";
+
+    console.log(first === arguments[0]);
+    console.log(second === arguments[1]);
+    first = "c";
+    second = "d"
+    console.log(first === arguments[0]);
+    console.log(second === arguments[1]);
+}
+
+mixArgs("a", "b");
+The call to mixArgs() outputs:
+
+true
+true
+false
+false
+
+if u remove strict mode then everthing will be true
+
+===================================================
+
+
+awesome use cases
+-----------------
+
+function getValue() {
+    return 5;
+}
+
+function add(first, second = getValue()) {
+    return first + second;
+}
+
+console.log(add(1, 1));     // 2
+console.log(add(1));        // 6

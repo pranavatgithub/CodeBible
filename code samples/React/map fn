@@ -1,0 +1,28 @@
+//map
+{ 
+    list.map(item => {
+        return (     //look at the bra
+            <div key={item.objectID}>
+                <span>
+                    <a href={item.url}>{item.title}</a>
+                </span>
+                <span>{item.author}</span>
+                <span>{item.num_comments}</span>
+                <span>{item.points}</span>
+            </div>
+);
+})}
+
+//2
+
+{ 
+    list.map(item =>
+        <div key={item.objectID}>   //oops where is the return? not required yaaaaar
+        <span>
+            <a href={item.url}>{item.title}</a>
+        </span>
+        <span>{item.author}</span>
+        <span>{item.num_comments}</span>
+        <span>{item.points}</span>
+</div>
+)}

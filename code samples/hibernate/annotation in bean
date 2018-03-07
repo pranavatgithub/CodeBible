@@ -1,0 +1,38 @@
+beans using annotations
+---------------------------------
+
+should specify entries in hbm.xml. if hbm2ddl is set to create in xml (in properties) then drop the previous and create new.ISSUE old data will be gone.for safety put update as a value 
+
+@Entity(name = "hello") //will create db in this name if name attrinute not specified it will pick up class name
+public class SegmentVariables {
+    @Id //specify id -->primary key yes
+    private Long id;
+    @Column(name = "parent_id") //name of this column
+    private Long parent_id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getParent_id() {
+        return parent_id;
+    }
+
+    public void setParent_id(Long parent_id) {
+        this.parent_id = parent_id;
+    }
+
+    public String getVariable_name() {
+        return variable_name;
+    }
+
+    public void setVariable_name(String variable_name) {
+        this.variable_name = variable_name;
+    }
+
+    private String variable_name;
+}

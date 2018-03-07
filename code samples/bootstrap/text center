@@ -1,0 +1,3 @@
+center text without css
+---------------------------
+<h2 class="text-center">CatPhotoApp</h2> add class text-center

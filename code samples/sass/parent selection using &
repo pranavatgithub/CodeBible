@@ -1,0 +1,34 @@
+PARENT SELECTION
+------------------
+a {
+	font-weight: bold;
+	text-decoration: none;
+	color: red;
+	border-bottom: 2px solid red;
+	&:hover {            //means a:hover
+				color: maroon;
+				border-color: maroon;
+			}
+}
+
+
+li a {
+	color: blue;
+	&.alert {         //li a.alert
+				color: red;
+			}
+	&.success {        //li a.success
+				color: green;
+			}
+}
+
+
+section.main p {
+		margin: 0 0 20px 0;
+		font-size: 18px;
+		line-height: 1.5;
+		body.store & {                       means body.store section.main p
+						font-size: 16px;
+						line-height: 1.4;
+					}
+}	

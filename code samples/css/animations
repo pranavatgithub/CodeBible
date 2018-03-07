@@ -1,0 +1,50 @@
+how to create an animation  ??
+-----------------------------
+
+@keyframes growProgressBar{ //define an animation with name grow...Bar and actions in percent
+0% {
+width: 0%;
+background-color: red;
+}
+50% {
+background-color: yellow;
+}
+100% {
+width:88%;
+background-color: green;
+}
+}
+
+
+How do i use this???
+-------------------------
+
+.progressBar {
+animation-name: growProgessBar;
+animation-duration 10s;
+animation-play-state: paused; // if no animation needed  -----u can start it by $('.progressBar').css('animation-play-state', 'running');
+animation-fill-mode: forwards; //just makes sure that when the animation is finished, the element keeps the end keyframe properties
+animation-delay:4s;  // starts after 4s onload
+animation-iteration-count:3; //repeats 3times u can give infinite too
+animation-direction:reverse; // reverse orderly execute the animation (from 100% to 0%)
+                    alternate // order changes alternatively 0-100% then 100% to 0 and so on
+animation-timing-function:ease-in // animation function it will control the speed based on fn
+
+animation:growProgessBar 10s linear 2s 3 alternate; //short form
+          animation-name-->duration--->timing function ---> delay ---> iter count ----> direction
+}
+
+
+using from to
+--------------
+
+@keyframes test{
+from {   --------->0%
+        width: 0%;
+        background-color: red;
+    }
+to {------------> 100%
+        width:88%;
+        background-color: green;
+    }
+}

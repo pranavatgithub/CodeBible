@@ -1,0 +1,6 @@
+var a=`<div onclick="alert()">HELLO WORLD</div>`  backtick symbol
+
+var b="test";
+
+var a=`<div onclick="alert()">HELLO WORLD  ${b}</div>`  //b is evaluated
+

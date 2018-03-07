@@ -1,0 +1,38 @@
+var  ==Declares a variable, optionally initializing it to a value.
+let  ==Declares a block scope local variable, optionally initializing it to a value.
+const  ==Declares a read-only named constant.
+
+variable novalue check
+------------------------
+
+var input;
+if(input === undefined){
+  doThis();
+} else {
+  doThat();
+}
+
+facts
+-------
+
+var myArray = [];
+if (!myArray[0]) myFunction();  //return false so !() --> fn executes
+
+var a;
+a + 2;  // Evaluates to NaN
+
+var n = null;
+console.log(n * 32); // Will log 0 to the console
+
+LET VS VAR
+------------
+
+if (true) {    // if is global fn
+  var x = 5;
+}
+console.log(x);  // x is 5
+
+if (true) {
+  let y = 5;        //constrained in if block
+}
+console.log(y);  // ReferenceError: y is not defined

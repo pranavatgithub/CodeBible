@@ -1,0 +1,4 @@
+position:sticky;
+top:0px;
+
+will fix an element at top in a scrollable conatainer .all other items are scrolled through this item.

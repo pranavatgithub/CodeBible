@@ -1,0 +1,104 @@
+NG_REPEAT
+-------------------
+
+ng-repeat,array,ng-init,$parent.$index
+
+example 1
+=================
+
+
+<table>
+    <thead>
+    <tr>
+        <th>name</th>
+        <th>tech</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="names in myTeam">  //work in arrays by default .should be placed in which element to be iterated names is a dummy value u can put any name
+        <td>{{names.name}}</td>
+        <td>{{names.tech}}</td>
+    </tr>
+    </tbody>
+</table>
+
+js
+---
+
+ let myTeam = [{name: "pranav", tech: "js"}, {name: "subin", tech: "python"}, {name: "hari", tech: "java"}]
+        $scope.myTeam=myTeam;
+
+o/p::a table is formed with values as pranav/subi .....
+
+
+example 2
+=============
+
+for this list with sublist
+
+>pranav
+		>javscript
+		>html
+>subin
+		>python
+		>java
+-------------....so on
+
+<ul>
+    <li ng-repeat="members in myTeam">{{members.name}}   //loop 1: myTeam is array[] so members is the objects inside it
+        <ul>
+            <li ng-repeat="techmain in members.tech">  //loop 2: members we already have an object should be array members.tech should be array
+                {{techmain.main}}
+            </li>
+            <li ng-repeat="techmain in members.tech">
+                {{techmain.secondary}}
+            </li>
+        </ul>
+    </li>
+</ul>
+
+html
+----
+let myTeam = [
+            {
+                name: "pranav", tech: [{main: "javascript", secondary: "html"}]
+            },
+            {
+                name: "subin", tech: [{main: "python", secondary: "java"}]
+            },
+            {
+                name: "hari", tech: [{main: "java", secondary: "pentaho"}]
+            }
+        ]
+$scope.myTeam = myTeam;
+
+GETTING THE INDEX
+-----------------------------
+<ul>
+    <li ng-repeat="members in myTeam">{{members.name}}   
+        <ul>
+            <li ng-repeat="techmain in members.tech">  
+                index={{$index}} ,parentindex=  index gives current li's index 0,1 etc parent returns its parent ul's index
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+Using ng-init
+---------------------------------------
+
+<li ng-repeat="members in myTeam" ng-init="parentIndex=$index">{{members.name}}  //initialise a variable parentIndex and assign current index to it,it can be accessed inside the ng-repeat scope
+        <ul>
+            <li ng-repeat="techmain in members.tech">
+                {{techmain.main}} ,parentindex={{parentIndex}}
+            </li>
+            <li ng-repeat="techmain in members.tech">
+                {{techmain.main}} ,parentindex={{parentIndex}}
+            </li>
+        </ul>
+    </li>
+
+
+
+

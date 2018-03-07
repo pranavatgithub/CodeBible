@@ -1,0 +1,4 @@
+item:hover{
+transition:all 3s; //transition all props to 3s;
+transition:width 2s,height 7s,background 4s; //different transitions to different props
+}

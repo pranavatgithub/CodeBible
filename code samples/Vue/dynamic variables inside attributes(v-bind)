@@ -1,0 +1,8 @@
+<a href="google.com">  where i need to give google.com from a variable how??
+
+simple,
+<a v-bind:href="url"></a>
+
+data{
+url:"google.com"
+}

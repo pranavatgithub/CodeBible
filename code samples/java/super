@@ -1,0 +1,24 @@
+super is used to refer immediate parent class
+-------------------------------------------------
+
+class Animal{  
+String color="white";  
+void eat(){syso("dsdsds")}
+void Animal(){
+//constructor
+}
+}  
+class Dog extends Animal{  
+String color="black";  
+void printColor(){  
+System.out.println(color);//prints color of Dog class  
+System.out.println(super.color);//prints color of Animal class  see we accessed parent class
+super.eat(); // call parent method
+super(); // call parent constructor
+}  
+}  
+class TestSuper1{  
+public static void main(String args[]){  
+Dog d=new Dog();  
+d.printColor();  
+}}  

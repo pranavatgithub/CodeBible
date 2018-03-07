@@ -1,0 +1,13 @@
+Inheritance
+-----------------------------
+
+public class JAVA_LEARN {
+    int a = 10;
+}
+
+class B extends JAVA_LEARN {  //B sub class JAVA_LEARN parent all methods of JAVA_LEARN is available here
+    public static void main(String[] args) {
+        JAVA_LEARN b = new JAVA_LEARN();
+        System.out.println(b.a);  //see a is not here its in parent JAVA_LEARN
+    }
+}

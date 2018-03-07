@@ -1,0 +1,7 @@
+SimpleDateFormat dateFormata = new SimpleDateFormat("yy_MM_dd_HH_mm_ss");
+Date date = new Date();
+ dateFormata.format(date)  //prints 17_05_12_12_02_22
+
+DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Calendar cal = Calendar.getInstance();
+            Date date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(dateFormat.format(cal.getTime()));  //for storing into db date type

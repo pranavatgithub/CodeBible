@@ -1,0 +1,12 @@
+ float a=20; //20.0
+ int b=(int) a; //20
+
+Expression evaluation twist
+----------------------------
+
+byte a = 40;
+        byte b = 50;
+        byte c = 100;
+        int d = a * b / c;
+
+here a,b,c are byte ,result d is also a valid byte.but java automatically converts a*b/c's a,b,c into int to prevent overflow .so the resultant val is also integer so above code will work iff d=integer

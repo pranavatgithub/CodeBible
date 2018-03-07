@@ -1,0 +1,33 @@
+import React, {Component} from 'react';
+
+class TimeButton extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: new Date()
+        }
+    }
+componentWillMount(){
+        this.setState({date:new Date()})  // if we do this we can remove the above date:new Date(); object in  constructor
+
+    }
+    componentDidMount() {
+        this.timerID = setInterval(() => {
+            this.newTime();
+        }, 500);
+
+    }
+    componentWillUnmount() {
+            clearInterval(this.timerID);  //timer cancelled
+    }
+    newTime() {
+        this.setState({date: new Date()});
+    }
+    render() {
+        return (
+            <button>{this.state.date.toLocaleTimeString()}</button>
+        )
+    }
+}
+
+export default TimeButton;

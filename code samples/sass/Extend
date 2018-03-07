@@ -1,0 +1,6 @@
+Extend
+-------------
+.alert-positive {  //extend alert-positive by adding all props form alert class except background (overriden)
+		@extend .alert;  //multiple extend also working
+		background: #9c3;
+}

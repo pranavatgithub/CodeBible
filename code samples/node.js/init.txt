@@ -1,0 +1,9 @@
+Initialise package.json  and node-modules folders
+npm init -y 
+
+npm install <package>  -g flag for global install
+
+npm install to install all depends in package.json
+
+npm install --save-dev <package>. This package only be available in developer mode not in prod
+

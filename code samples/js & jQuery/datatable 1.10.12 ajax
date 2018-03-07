@@ -1,0 +1,27 @@
+
+datatable 1.10.12 initialisation using AJAX with a data sent to server
+
+---------------------------------------------------------------------------------------------------
+
+
+   var datatoserver = {SERVICE_NAME: "get_details"};
+ $('#RE_GROUP_DETAIL').DataTable({
+            ajax: {
+                url: "http://127.0.0.1:8080/HttpAdapter",
+                type: "POST",
+                dataType: "JSON",
+                data:  function () {      // here data is sent to server (json data)
+                    return JSON.stringify(datatoserver);
+                },
+            },
+            "columns": [
+                {"data": "GROUP_NAME","visible": false, "searchable": false},
+{"data": "TABLE_GROUP_NAME"render: function (data, type, full, meta) {return $('<div/>').text(data).html();}}, //playing with the data-this code for xml printing properly
+                {"data": "ORDER_BY"},
+                {"data": "GROUP_FIELD"},
+                {"data": "CONNECTION_FILE"},
+                {"data": "DATASOURCE"},
+                {"data": "CONNECTION_KEY"},
+                {"data": "IS_INCREMENTAL"}
+            ]
+        });

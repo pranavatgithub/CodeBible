@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js";></script>  //include the angular.js
+</head>
+<body ng-app>          //include ng-app angulars starting point is here
+    10+10={{10+10}}  //displays 10+10=20
+	{{{name:"Test",value:"hmmm"}.name}}  // print Test
+    {{1==1}} //return True
+	{{1==2}} // return false
+	
+</body>
+</html>
+
+
+
+
+
+
+ok now create a seperate js file
+---------------------------------
+var myApp=angular.module("myModule",[]);  //create a module  this name is the name of ng-app directive
+
+myApp.controller("myController",function ($scope) {  //create a controller for the module and pass its name and function to be involked this ,it is name of ngcontroller
+    $scope.name="Hello angular!!!!"; 
+});
+
+
+OR
+----------------------
+
+var myApp = angular                            // 1 line declaration 
+    .module("myModule", [])
+    .controller("myController", function ($scope) {
+        var a = "kooi";
+        $scope.test = a;
+    });
+

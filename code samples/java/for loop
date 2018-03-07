@@ -1,0 +1,25 @@
+for loops
+------------
+
+1.for each for array look there(array.txt)
+
+2.labelled for loop
+----------------------------------------
+
+  aa:  
+        for(int i=1;i<=3;i++){  
+            bb:  
+                for(int j=1;j<=3;j++){  
+                    if(i==2&&j==2){  
+                        break aa;             //used to break parent for loop aa: if it is not used how we will beak a for loop?? :(
+                    }  
+                    System.out.println(i+" "+j);  
+                }  
+        }   
+
+3.infinitive loop
+-------------------------------------------
+
+for(;;){  
+        System.out.println("infinitive loop");  //never going to end
+    }  

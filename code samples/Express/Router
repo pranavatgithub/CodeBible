@@ -1,0 +1,39 @@
+Create a Router first
+----------------------------
+
+login.js
+---------
+var express = require('express');
+var router = express.Router();
+router.get('*', function(req, res, next) {
+    console.log("Dispatcher servelet kind of thing");
+    req.next();
+});
+
+module.exports = router;
+
+---------------------------------------
+
+how do i use this???
+---------------------
+goto app.js and add following line
+
+var login=require("./routes/login"); // no need to specify .js extension  ----------> single dot(.) in ./routes indicates that goto 1 parent up and find the dir routes
+
+(if ../routes/app.js means goto parent & again parent and check routes there)
+
+how do i use it???
+
+app.use("*",login); --->> all req automatically hit login router first..
+
+real purpose??
+-------------------
+
+split routes like /mobile/*  or /web/*
+
+req coming with /mobile is moved to mobile router etc....
+
+eg. 
+
+var users=require("./routes/users");
+app.use("/users",users);

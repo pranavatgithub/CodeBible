@@ -1,0 +1,69 @@
+Use a function from rect
+=========================
+function sum(){
+return 4;
+}
+class Select extends React.Component{
+
+        render(){
+            return <select>
+                <option>{sum()}</option>
+                <option>{sum()}</option>
+            </select>
+        }
+    }
+
+    class Test extends React.Component {
+        render() {
+            return <div>
+                <Select/>
+            </div>;
+        }
+    }
+
+-------------------------------------------------------
+a small static element
+=======================
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+
+render from function
+========================
+
+function TestOne(props){         IMPORTANT it should be camel Cased(function name)
+    console.log(props);  //test=[....],find="sds"
+    return(
+        <Button/>
+    )
+}
+class App extends Component {
+    render() {
+        var a=[1,2,3,4,5];
+        return <TestOne test={a} find="sds"/>;
+    }
+}
+
+pass parameter from 1 class to another
+======================================
+
+class1
+------
+
+render(){
+                <Button test="helloo boy"/>
+
+}
+
+class Button
+------------
+
+ render(){
+        return(
+          <button>{this.props.test+" how r u?"}</button>  //here the passed param test from class1 is accessed by this.props.test
+        );
+    }
+
+

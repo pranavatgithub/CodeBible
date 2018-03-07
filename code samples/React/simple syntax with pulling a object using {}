@@ -1,0 +1,15 @@
+var Test = (props) => {
+    const {name = "pranav"} = props;  //will pull object `name` from props if not found it will be pranav
+    return (
+        <li>{name}</li>
+    )
+};
+
+class App extends Component {
+    render() {
+        return (
+            <Test name={"hello"}/>
+        )
+
+    }
+}

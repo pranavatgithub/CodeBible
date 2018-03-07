@@ -1,0 +1,15 @@
+very basic server code
+-------------------------------------
+var express = require('express');
+var port = 3000;
+var app = express();  //instantiate express object();
+ 
+app.get('*', function(request, response){  //any request hit here
+request.end('Hello World');
+});
+ 
+app.listen(port, function(){  //server up at 3000
+console.log('The server is running, ' +
+' please open your browser at http://localhost:%s',
+port);
+});

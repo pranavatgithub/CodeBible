@@ -1,0 +1,7 @@
+import css file to vue
+============================
+
+<script>
+  import '../assets/createEvent.css'     //cool!!!
+
+</script>

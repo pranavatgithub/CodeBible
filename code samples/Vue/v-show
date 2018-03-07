@@ -1,0 +1,9 @@
+export default {
+    data: () => ({
+    
+      test: true
+   
+  }
+
+        <v-toolbar-title v-show="test">hello</v-toolbar-title>  //will be hidden since test=false
+

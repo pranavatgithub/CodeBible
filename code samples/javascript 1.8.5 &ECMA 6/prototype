@@ -1,0 +1,41 @@
+extend an object that's it
+--------------------
+
+function a() {
+    this.name = "";
+    this.sum = 0;
+    this.add = function (a, b) {
+        this.sum = a + b;
+    }
+}
+
+var tt=new a(); // take object of function
+
+tt.add(3, 4); 
+console.log(tt.sum); // gives a.sum=7
+
+a.prototype.substract = function (a, b) {  //extend functionality of a();
+    this.sum = a - b;   
+}
+tt.substract(4,5);  
+console.log(tt.sum); // -1
+
+a.prototype.newsum=50;
+
+tt.newsum // now 5  0
+------------------------------
+type 2
+
+function Person(name) {
+this.name = name;
+}
+
+Person.prototype = {
+sayName: function() {
+console.log(this.name);
+},
+toString: function() {
+return "[Person " + this.name + "]";
+}
+
+};

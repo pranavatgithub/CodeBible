@@ -1,0 +1,22 @@
+//basic str
+class Developer {
+    constructor(firstname, lastname) { //every class should have a constructor
+        this.firstname = firstname;
+        this.lastname = lastname;
+                                    }
+    getName() { //methods
+        return this.firstname + ' ' + this.lastname;
+            }
+}
+
+how to use it??
+
+const robin = new Developer('Robin', 'Wieruch'); //automatically invoke constructor
+
+console.log(robin.getName()); //Robin Wieruch
+
+how to in seperate js file???
+
+1.export Developer like export default Developer
+2.import in new js file import Dev from './Developer' (if in same dir)
+3.just use it with the name Dev

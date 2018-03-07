@@ -1,0 +1,36 @@
+filter an expression according to number,currency,date,casesensitivity etc
+
+js
+---------------
+var employees = [
+            {name: "Pranav", dob: new Date("july 12,1994"), salary: "20000.55"},
+            {name: "subi", dob: new Date("august 12,1991"), salary: "63000"},
+            {name: "hari", dob: new Date("april 01,1990"), salary: "75000"},
+            {name: "giri", dob: new Date("january 10,1995"), salary: "30000"},
+            {name: "rahul", dob: new Date("december 05,1994"), salary: "20000"}];
+        $scope.employees=employees;
+        $scope.Step=2; //default shown in input select box
+
+html
+--------------------
+
+<input type="number" step="1" min="1" ng-model="Step" max="4">  //variety select box can choose between 1 and 4 with index+=1
+<table>
+    <thead>
+    <tr>
+        <th>name</th>
+        <th>dob</th>
+        <th>salary in num</th>
+        <th>salary in cash</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="employee in employees | limitTo:Step">  ng-model is Step so increasing Step above increase limit
+        <td>{{employee.name | uppercase}}</td> to uppercase
+        <td>{{employee.dob | date:"MM/dd/yyyy"}}</td> date to this format
+        <td>{{employee.salary | number:1}}</td> limit decimel to 1
+        <td>{{employee.salary | currency:"rupee":1}}</td> displays rupees 30000.0 (decimal is 1)
+    </tr>
+    </tbody>
+</table>

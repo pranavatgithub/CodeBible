@@ -1,0 +1,104 @@
+this is refers to this object scope
+-----------------------------------
+
+what is the exact use??
+
+public class JAVA_LEARN {
+    int a = 10;
+    int c=20;
+    void add(int d,int c){
+        a=d;
+        this.c=c;  
+    }
+    void disp(){
+        System.out.println(a +" & "+c);  //prints  100 & 200 ---if i miss this.c and just put c=c the value of c is not 200!!!!Y???one of the  arg of add is c  and c is a local variable too so conflicted..so need to specify this keyword here.if the args where different eg add(int d,int e) then no need of this
+    }
+
+    public static void main(String[] args) {
+            JAVA_LEARN test=new JAVA_LEARN();
+            test.add(100,200);
+            test.disp();
+    }
+
+
+}
+------------------------------------
+
+where this not needed???
+------------------->>
+
+class Student{  
+int rollno;  
+String name;  
+float fee;  
+Student(int r,String n,float f){   //arg name not equal to local variable
+rollno=r;  
+name=n;  
+fee=f;  
+}  
+void display(){System.out.println(rollno+" "+name+" "+fee);}  
+}  
+  
+class TestThis3{  
+public static void main(String args[]){  
+Student s1=new Student(111,"ankit",5000f);  
+Student s2=new Student(112,"sumit",6000f);  
+s1.display();  
+s2.display();  
+}}  
+
+this(); function
+---------------------------------------------------
+
+class A{  
+A(){System.out.println("hello a");}  
+A(int x){  
+this();   //involks constructor man! this should be placed first in the method
+System.out.println(x);  
+}  
+}  
+class TestThis5{  
+public static void main(String args[]){  
+A a=new A(10);  
+}}  
+
+call this(with args[]) function()
+---------------------------
+class A{  
+A(){  
+this(5);  //see it calls constructor of A which has 1 args
+System.out.println("hello a");  
+}  
+A(int x){  
+System.out.println(x);  
+}  
+}  
+class TestThis6{  
+public static void main(String args[]){  
+A a=new A();  
+}} 
+
+reusing a constructor
+---------------------------------------------------------
+class Student{  
+int rollno;  
+String name,course;  
+float fee;  
+Student(int rollno,String name,String course){  //it can reuse using <this>
+this.rollno=rollno;  
+this.name=name;  
+this.course=course;  
+}  
+Student(int rollno,String name,String course,float fee){  
+this(rollno,name,course);//reusing constructor  
+this.fee=fee;  
+}  
+void display(){System.out.println(rollno+" "+name+" "+course+" "+fee);}  
+}  
+class TestThis7{  
+public static void main(String args[]){  
+Student s1=new Student(111,"ankit","java");  
+Student s2=new Student(112,"sumit","java",6000f);  
+s1.display();  
+s2.display();  
+}}  

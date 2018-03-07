@@ -1,0 +1,14 @@
+objects
+----------------
+class Student{
+    int id;
+    String name;
+}
+
+Student test=new Student() //well object created now we can do test.id ,test.name etc
+
+
+multiple objects at a time
+---------------------------
+
+Student s1=new Student(),s2=new Student(); //s1 and s2 are refernce to Student

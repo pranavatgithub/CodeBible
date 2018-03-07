@@ -1,0 +1,65 @@
+VARIABLE TYPES
+------------------------------------------------
+class A{  
+    int data=50;  //instance variable  
+    static int m=100;  //static variable  
+    void method(){  
+        int n=90;//local variable  
+                }  
+}//end of class  
+
+
+float a=10.0; error y?? u missed a letter f so a=10.0f; or convert a to double so double a=10.0; it is more precise than float..
+
+TYPE CASTING OR NARROWING
+----------------------------------------------------
+
+float f=10.5f;  
+//int a=f;//Compile time error  
+int a=(int)f;  
+
+WIDENING
+-------------------------------------------------------
+
+int a=10;  
+float f=a;  f=10.0; now
+
+UNARY OPERATORS
+---------------------------------------------------------
+
+int x=0;
+
+Syso(x++)  means x prints first so value is 0,then increment x by 1
+
+syso(++x) means + has top priority inc. x by 1 first then print x so value is 1
+
+
+int a=10;  
+int b=-10;  
+boolean c=true;  
+boolean d=false;  
+System.out.println(~a);//-11 (minus of total positive value which starts from 0)  
+System.out.println(~b);//9 (positive of total minus, positive starts from 0)  
+
+
+LOGICAL VS BITWISE
+-----------------------------------------------------------------
+
+int a=10;  
+int b=5;  
+int c=20;  
+System.out.println(a>b||a<c);//true || true = true  
+System.out.println(a>b|a<c);//true | true = true  
+//|| vs |  
+System.out.println(a>b||a++<c);//true || true = true  if 1st condition satisfies it quit checking
+System.out.println(a);//10 because second condition is not checked  
+System.out.println(a>b|a++<c);//true | true = true   EVERY PART is checked
+System.out.println(a);//11 because second condition is checked  
+
+
+TERNARY
+---------------------------------------------------------------------------
+
+int a=2;  
+int b=5;  
+int min=(a<b)?a:b; //since a<b is true min=a=2;

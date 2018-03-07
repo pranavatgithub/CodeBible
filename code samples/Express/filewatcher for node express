@@ -1,0 +1,11 @@
+•	 forever: For use on the production server (https://npmjs.org/package/forever)
+•	 node-dev: Description (https://npmjs.org/package/node-dev; GitHub:https://github.com/fgnass/node-dev)
+•	 nodemon: Supports CoffeeScript (https://npmjs.org/package/nodemon; GitHub:https://github.com/remy/nodemon)
+•	 supervisor: Written by the one of the creators of NPM https://npmjs.org/package/supervisor; GitHub: https://github.com/isaacs/node-supervisor)
+•	 up: Written by the team that wrote Express.js (https://npmjs.org/package/up; GitHub:https://github.com/LearnBoost/up)
+
+PURPOSE??
+----------
+it automatically reload the app while a BL-JS file change.no more restart --->>> less dev-time
+i used node-dev worked flowlessly
+option:-  node-dev  --no-notify www (name of js file)

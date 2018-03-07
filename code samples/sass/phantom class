@@ -1,0 +1,17 @@
+phantom class
+-----------------
+
+class used only for extending a style
+
+%button {     //denoted by starting a % symbol
+		padding: 10px;
+		font-weight: bold;
+		background: blue;
+		border-radius: 6px;
+}
+
+
+consumed by
+.buy {
+	@extend %button;       ==== .buy{padding: 10px;font-weight: bold;background: blue;border-radius: 6px;}
+}

@@ -1,0 +1,16 @@
+export default {
+    data() {
+      return {
+        msg: 'hello'
+      }
+    }
+  }
+
+then print msg like <h1>{{msg}}</h1> //cool!!!  variable interpolation
+
+some valid expressions
+------------------------
+
+{{ number + 1 }}
+{{ ok ? 'YES' : 'NO' }}
+{{ message.split('').reverse().join('') }}

@@ -1,0 +1,11 @@
+ASSIGN PADDING
+--------------------------
+
+padding:10px 20px 30px 40px; it is a clockwise notation
+that is padding-top--->padding-right--->padding-bottom--->padding-left
+
+same is possible with margin also
+
+ASSIGN MARGIN
+-------------------------------
+margin:10px 20px 30px 40px; it is a clockwise notation

@@ -1,0 +1,6 @@
+date time
+---------------
+pf pic
+var now=new Date();
+
+var year = now.getFullYear();

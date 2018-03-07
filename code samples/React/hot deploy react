@@ -1,0 +1,14 @@
+Hot Module Reloading  HMR
+==========================
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './index.css';
+ReactDOM.render(
+<App />,
+document.getElementById('root')
+);
+//bottom lines do magic now no need to refresh browser
+if (module.hot) {
+module.hot.accept()
+}

@@ -1,0 +1,46 @@
+
+fact in operator
+----------------
+
+"37" - 7 // 30
+"37" + 7 // "377"  for + append rest as regular 
+
+
+(+"1.1")  --->>> 1.1 number (from string to number) or use parseInt() parseFloat()
+
+
+Ternary operator
+--------------------------------
+
+var status = (age >= 18) ? "adult" : "minor";
+
+
+In
+-----------
+
+var trees = ["redwood", "bay", "cedar", "oak", "maple"];
+0 in trees;        // returns true
+6 in trees;        // returns false
+"bay" in trees;    // returns false (you must specify the index number,
+                   // not the value at that index)
+"length" in trees; // returns true (length is an Array property)
+
+// Custom objects
+var mycar = { make: "Honda", model: "Accord", year: 1998 };
+"make" in mycar;  // returns true
+
+
+Instanceof
+---------------------
+
+var theDay = new Date(1995, 12, 17);
+if (theDay instanceof Date) {
+  // statements to execute
+}
+
+
+Typeof
+---------------------------
+
+typeof 'Hello world';  //return string
+

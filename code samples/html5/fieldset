@@ -1,0 +1,28 @@
+fieldset
+=====================================>
+
+Group elements in a box.
+box-name ::: will be legend name
+
+ <fieldset>
+  <legend>Personalia:</legend>
+  <ul>
+  <li>JELLO</li>
+  <li>hou</li>
+  </ul>
+ </fieldset>
+
+ex.
+
+----Personalia-----------------------------------------
+-                                                     -  
+-                                                     -
+-  . JELLO                                            -
+-  . hou                                              -
+-                                                     -
+-                                                     -
+-                                                     -
+-                                                     -
+-------------------------------------------------------
+
+

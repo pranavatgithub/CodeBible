@@ -1,0 +1,19 @@
+2 way data binding & ng-model
+--------------------------------
+ng-model ,{{name}}
+
+note:- ng-model can only be used in form elements !!!!!!!!
+
+js
+---
+let person={
+           name:"pranav",
+           age:"25"
+       }
+       $scope.person=person;
+
+html
+-----
+
+<input type="text" ng-model="person.name">  //no {{}} needed it checks person.name obj in the specified controller 
+<p>{{person.name}}</p> //instantly changes on person.name changes

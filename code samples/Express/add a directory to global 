@@ -1,0 +1,18 @@
+express.static method
+----------------------------------------
+app.use(express.static(path.join(__dirname, 'public')));  //public dir added to path so /images/*.jpg(Assuming images dir inside public ) will be directly accessible by URL
+
+app.use(express.static(path.join(__dirname, 'public/images'))); // here only images inside public is accessible
+
+directory str is:-
+
+root:--
+    bin:--
+        www.js
+    public:--
+        images:--
+            pranav.JPG
+        javascripts:--
+            hello.js
+    views:--
+        index.hbs

@@ -1,0 +1,22 @@
+click event
+-----------------
+
+<button @click="register">Hello</button>
+
+or
+
+<button v-on:click="register">Hello</button>
+
+export default {
+    data () {
+      return {
+        test: 'helloss'
+      }
+    },
+    methods: {
+      register () {
+        alert("hoooi");
+        
+      }
+    }
+  }

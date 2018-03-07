@@ -1,0 +1,8 @@
+darken and lighten
+--------------------
+$color-accent: #ea4c89;
+
+section.secondary {
+	background: darken($color-accent, 30%);
+}
+darker color by 30% vice versa for lighten

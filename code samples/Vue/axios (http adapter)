@@ -1,0 +1,47 @@
+init Api.js
+=================
+
+import axios from 'axios'
+export default () => {
+  return axios.create({baseURL: `http://localhost:3001/`})
+}
+
+
+usage
+========================
+
+Test.js
+
+import Api from '@/services/Api'
+
+export default {
+  register (credentials) {
+    return Api().post('/register', credentials)  //register is the method name
+  }
+}
+
+=================================
+
+use in vue.vue
+-------------------
+
+<script>
+  import Test from '@/services/Test' //import the method
+
+  export default {
+    data () {
+      return {
+       
+      }
+    },
+    methods: {
+      async register () {  //asynchronous call to register
+        const resp = await Test.register({ //promise
+          'hai': 'xxx'
+        })
+        console.log(resp.data)
+      }
+    }
+  }
+</script>
+

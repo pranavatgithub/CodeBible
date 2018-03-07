@@ -1,0 +1,25 @@
+<p>pranav is a awesome coder</p>
+
+p{
+-webkit-column-count:3;      splits above senence into 3 partitions like    pranav is          a awesome       coder    (based on width) 
+colmn-count:3;
+column-gap:20px;   gap between columns
+column-rule-style:solid; border will come in right on each column we can give dashed dotted...
+column-rule-width:1px;  border width will be 1px 
+column-rule-color:red color of ruler
+}
+
+ex
+
+-------------        -----------------       -----------------
+-------------        -----------------       -----------------
+-------------        -----------------       -----------------
+-------------        -----------------       -----------------
+-------------        -----------------       -----------------
+-------------        -----------------       -----------------
+-------------        -----------------       -----------------
+-------------        -----------------       -----------------
+-------------        -----------------       -----------------
+
+IE10+ 
+-webkit,-moz kind of prefixes required

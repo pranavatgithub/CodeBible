@@ -1,0 +1,5 @@
+$('body').toggleClass('altStyle');  //add class altStyle if not present else remove it like ON/OFF switch
+
+$('body').addClass("dsds");
+
+$('body').removeClass("dss"); 

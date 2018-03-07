@@ -1,0 +1,52 @@
+WITHOUT ARGS[]
+---------------------------------
+@mixin default-type {  //its like a function can be used in multiple elements to avoid repeatation
+	margin-bottom: 20px;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+p {
+	@include default-type;
+}
+
+with args[]
+----------------------------------------
+
+@mixin title-style($color, $background) {
+		margin: 0 0 20px 0;
+		font-family: $font-serif;
+		font-size: 20px;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: $color;
+		background: $background;
+}
+
+call it using
+
+section.main h2 {	
+		@include title-style(#c63,#5ef);  //arg[] is taken as color here
+}
+
+function with default values
+----------------------------
+
+@mixin title-style($color, $background:#eee) {  //default value is taken if no args[] passed
+		margin: 0 0 20px 0;
+		font-family: $font-serif;
+		font-size: 20px;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: $color;
+		background: $background;
+}
+
+HOW DO I OVERRIDE IT?????
+--------------------------
+
+section.main h2 {	
+@include title-style($background: pink);  //background :eee overrdided by pink
+}
+
+

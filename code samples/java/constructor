@@ -1,0 +1,56 @@
+constructor
+--------------
+
+class Bike1{  
+Bike1(){System.out.println("Bike is created");}  //same as class name if not present compiler automatically creates one 
+public static void main(String args[]){  
+Bike1 b=new Bike1();  
+}  
+}  
+
+
+yeah we can initailse an object with certain values as default(w/o getter setter)
+------------------------------------------------------------------------------------
+class Student4{  
+    int id;  
+    String name;  
+      
+    Student4(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    void display(){System.out.println(id+" "+name);}  
+   
+    public static void main(String args[]){  
+    Student4 s1 = new Student4(111,"Karan");  
+    Student4 s2 = new Student4(222,"Aryan");  
+    s1.display();  //111,karan 
+    s2.display();  //222,aryan
+   }  
+}  
+
+damn we can override constructors man, we call it overloading
+-----------------------------------------------
+
+class Student5{  
+    int id;  
+    String name;  
+    int age;  
+    Student5(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    Student5(int i,String n,int a){  
+    id = i;  
+    name = n;  
+    age=a;  
+    }  
+    void display(){System.out.println(id+" "+name+" "+age);}  
+   
+    public static void main(String args[]){  
+    Student5 s1 = new Student5(111,"Karan");  //constructor choosen based on args it have,here we call 1st student5() method
+    Student5 s2 = new Student5(222,"Aryan",25);  
+    s1.display();  
+    s2.display();  
+   }  
+}  

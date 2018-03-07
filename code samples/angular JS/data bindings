@@ -1,0 +1,9 @@
+Data bindings
+==========================
+
+myApp.controller("myController",function ($scope) {
+   var a="kooi";   //global variable
+   $scope.test=a;  //scope variable only valid here in this controller
+});
+
+in html {{test}} returns kooi

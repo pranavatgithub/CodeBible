@@ -1,0 +1,48 @@
+instant initialiser block
+--------------------------------------------------------------------
+
+class Bike7{  
+    int speed;  
+      
+    Bike7(){System.out.println("speed is "+speed);}  
+   
+    {speed=100;}  //this is the item.it executes when new object is initialised
+       
+    public static void main(String args[]){  
+    Bike7 b1=new Bike7();  
+    Bike7 b2=new Bike7();  
+    }      
+}  
+
+o/p:--speed is 100 speed is 100 how?????  becoz hike7() constructor compiled to 
+
+Bike7(){
+super();  //so parent method involk first in constructor body that is speed=100 then syso
+Syso(....+speed);
+}
+
+-------------------------------------------
+
+order -for better clarification
+
+----------------------------------------
+
+class Bike8{  
+    int speed;  
+      
+    Bike8(){System.out.println("constructor is invoked");}  
+   
+    {System.out.println("instance initializer block invoked");}  
+       
+    public static void main(String args[]){  
+    Bike8 b1=new Bike8();  
+    Bike8 b2=new Bike8();  
+    }      
+}  
+
+o/p:--
+
+instance initializer block invoked              (by super();)
+       constructor is invoked
+       instance initializer block invoked
+       constructor is invoked

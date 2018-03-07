@@ -1,0 +1,22 @@
+ng-click and involk a function
+----------------------------------
+
+
+html
+-----
+<button ng-click="increaseRank()">Increase</button>
+<button ng-click="decreaseRank()">Decrease</button>
+<div ng-bind="Rank"></div>   //instant chane yeah!!!!
+
+js
+----
+ var Rank=0;
+        $scope.Rank=Rank;
+
+        $scope.increaseRank=function () {
+            $scope.Rank++;
+            console.log(Rank);
+        }
+        $scope.decreaseRank=function () {
+            $scope.Rank--;
+        }

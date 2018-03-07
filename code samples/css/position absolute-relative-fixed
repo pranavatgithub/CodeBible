@@ -1,0 +1,27 @@
+relative
+------------
+
+normal flow will follow. if u place 3 div ,
+<div>A</div>  1 full width block
+<div>B</div>  1 full width block
+<div>C</div>  1 full width block
+
+but u can use some props instead -- top ,left , right
+
+absolute
+------------
+
+it will take this element from the container.so no space will be taken in container
+<body>
+<div class="a">
+    <div class="b">HEllo</div> if it is absolutely positioned it will move to top left of its parent container(if it is positioned relative/absolute else go up again)
+</div>
+</body>
+so above class b will be top left alligned wrt body
+
+IF class a is relatively positioned then class a will be positioned top left wrt to class a ..Hmm tricky
+
+fixed
+---------------
+
+it will stay in accordance with viewport . it will stay in screen even if we scrolled the item

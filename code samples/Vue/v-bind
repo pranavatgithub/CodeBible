@@ -1,0 +1,14 @@
+
+      <input v-bind:value="url"> // value will be ggoogle
+<input :value="url"> // just : symbol is also fine
+data{
+"url":"ggoogle"
+}
+
+
+<div v-bind:id="'list-' + id"></div>  list- is appended before
+
+advanced
+---------
+
+<a v-bind:href="url + '/test'"></a> ---------> <a href="ggoogle/test"></a> dont forget that single quotes buddy!!!!!!!!!

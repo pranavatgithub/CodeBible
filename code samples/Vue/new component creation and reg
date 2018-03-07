@@ -1,0 +1,78 @@
+create and use new component
+===================================
+
+define it  -New.vue
+---------
+<template>
+  <p>hello world</p>
+</template>
+<script>
+  export default {}
+</script>
+
+import it in a new file
+-------------------------
+  import newComponent from './New.vue';
+
+export default {
+    name: 'hello',
+    components: {
+      'xxx': newComponent  //xxx is just a name buddy ,use any name instead and use this dummy name for component creation
+    }
+  }
+
+<xxx></xxx> will  print hello world
+
+
+passing params to new component
+---------------------------------
+main page
+----------
+<template>
+  <div>
+    <div id="app-7">
+      <ol>
+        <xxx :user="users"></xxx> //here a param user is passed with value users[]
+      </ol>
+    </div>
+  </div>
+</template>
+
+<script>
+  import newComponent from './New.vue';
+
+  export default {
+    name: 'hello',
+    components: {
+      'xxx': newComponent
+    },
+    data() {
+      return {
+        users: [
+          {firstname: 'Sebastian', lastname: 'Eschweiler'},
+          {firstname: 'Bill', lastname: 'Smith'},
+          {firstname: 'John', lastname: 'Porter'}
+        ],
+        pagestatus: "new"
+      }
+    }
+  }
+</script>
+
+New.vue component page
+------------------------
+
+<template>
+  <ul>
+    <li v-for="prop in user">
+      {{prop.firstname}}
+    </li>
+  </ul>
+</template>
+<script>
+  export default {
+    props: ['user'] //captured the passed item
+  }
+</script>
+
+

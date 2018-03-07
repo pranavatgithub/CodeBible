@@ -1,0 +1,36 @@
+file 1 Api.js
+--------
+import axios from 'axios'
+export default () => {
+  return axios.create({baseURL: `http://localhost:3001/`})
+}
+
+f2  Test.js
+-------
+import Api from '@/services/Api' // see @symbol
+
+export default {
+  register (credentials) {
+    return Api().post('/register', credentials)
+  }
+}
+
+f3
+----------
+import Test from '@/services/Test'    //f2 imported
+
+  export default {
+    data() {
+      return {
+        test: 'helloss'
+      }
+    },
+    methods: {
+      async register() {
+        const resp = await Test.register({
+          'hai': 'xxx'
+        })
+        console.log(resp.data)
+      }
+    }
+  }

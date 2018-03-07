@@ -1,0 +1,3 @@
+var x={ "a": 1, "b": 2 }
+
+Object.keys(x) ---->> return [a,b] in array form

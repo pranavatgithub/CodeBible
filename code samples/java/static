@@ -1,0 +1,107 @@
+careful:::::::::::::::
+
+if u put static then it is available before initialising an object
+
+eg. 
+
+public class JAVA_LEARN {
+     static int a=10;  // a=10 available before initailsing object for class LEARN_JAVA
+    String b="helllooo"; // not available before initialising obj
+
+}
+
+
+class B {
+ void add(){
+    JAVA_LEARN a=new JAVA_LEARN();
+    a.a=20;
+    a.b="heeiiii";
+   }
+    public static void main(String[] args) {
+        B c=new B();
+        c.add();
+        System.out.println(new JAVA_LEARN().a);  // a will be 20!!! so static item is overriden
+        System.out.println(new JAVA_LEARN().b);  // still helloo !! not overriden  
+    }
+}
+
+-----------------------------------------
+
+class Counter2{  
+static int count=0;//will get memory only once and retain its value  
+  
+Counter2(){  
+count++;  
+System.out.println(count);  
+}  
+  
+public static void main(String args[]){  
+  
+Counter2 c1=new Counter2();  //1
+Counter2 c2=new Counter2();  //2
+Counter2 c3=new Counter2();  //3
+  
+ }  
+}  
+
+notes
+----------
+A static method belongs to the class rather than object of a class.
+
+static method can access static data member and can change the value of it.
+
+
+class Student9{  
+     int rollno;  
+     String name;  
+     static String college = "ITS";  
+       
+     static void change(){  
+     college = "BBDIT";  
+     }  
+  
+     Student9(int r, String n){  
+     rollno = r;  
+     name = n;  
+     }  
+  
+     void display (){System.out.println(rollno+" "+name+" "+college);}  
+  
+    public static void main(String args[]){  
+    Student9.change();                        //see direct access from static method to static var .overriden value
+  
+    Student9 s1 = new Student9 (111,"Karan");   so college name =BBDIT
+    Student9 s2 = new Student9 (222,"Aryan");  
+    Student9 s3 = new Student9 (333,"Sonoo");  
+  
+    s1.display();  
+    s2.display();  
+    s3.display();  
+    }  
+}  
+
+
+
+---------------
+
+class A{  
+ int a=40;//non static  
+   
+ public static void main(String args[]){  
+  System.out.println(a);  //error 
+ }  
+} 
+
+----------------------------------------------
+trick--------
+--------------
+wanna execute a method before main() method???
+
+easy..
+
+class A2{  
+  static{System.out.println("static block is invoked");}   //static block execute first awesome? right
+  public static void main(String args[]){  
+   System.out.println("Hello main");  
+  }  
+}  

@@ -1,0 +1,28 @@
+should be camelcased so attribute tabindex-------->tabIndex
+changes
+--------
+
+class------------->className
+checked------------>defaultChecked (in radio button/checkbox) but checked also taking(but u need to specify onchange event else will throw error)
+onchange----------->onChange
+selected ---for option components
+value-------------->defaultValue same like checked need to specify onchange for value attribute
+
+styles
+-------
+
+const divStyle = {  //camelcased css styles are used and passed to style attribute rather than string
+  color: 'blue',
+  backgroundImage: 'url(' + imgUrl + ')',
+};
+
+const divStyle2 = {
+  WebkitTransition: 'all', // note the capital 'W' here
+  msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+};
+
+function HelloWorldComponent() {
+  return <div style={divStyle}>Hello World!</div>;
+}
+
+https://facebook.github.io/react/docs/dom-elements.html

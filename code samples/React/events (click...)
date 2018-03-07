@@ -1,0 +1,110 @@
+NORMAL CLICK WITH NO RELATION WITH STATE
+================================================
+class TimeButton extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+
+   
+
+    stopTime(e) {
+        e.preventDefault(); // if u want to preventDefault click do this
+        console.log("helloo")
+    }
+
+    render() {
+        return (
+            <button onClick={this.stopTime}>hello!</button> // onClick should be camelcased this.stopTime dont need bra ()
+        )
+    }
+}
+
+export default TimeButton;
+
+CLICK WITH RELATION TO STATE 
+=====================================
+
+
+
+class TimeButton extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            toggle: false
+        };
+        this.toggle = this.toggle.bind(this);  // see this line !!! 
+    }
+
+    toggle(a,e) { //if args[] for example 2
+console.log(a) //will be passed arg[] and e will be event object
+        this.setState((prevstate) => ({
+            toggle:prevstate.toggle === false
+        }))
+    }
+
+    render() {
+        return (
+            <button onClick={this.toggle}>{this.state.date.toLocaleTimeString()}</button>
+            <button onClick={this.toggle.bind(this,this.state.toggle)}>example 2</button> //here toggle method having params bind() required
+        )
+    }
+}
+
+PASSING PARENT CLICK FN TO CHILD 
+====================================
+parent fn()
+=============
+test(a) {
+        alert(a)  //alert hello
+    }
+
+    render() {
+        return (
+            <div>
+                <TimeButton onCLI={this.test}/>
+                <TimeButton onCLI={this.test}/>
+                <TimeButton onCLI={this.test}/>
+            </div>
+        )
+    }
+child class
+=============
+
+render() {
+        return (
+            <button onClick={this.props.onCLI.bind(this,"hello")}>{this.state.date.toLocaleTimeString()}</button>
+        )
+    }
+
+
+CHANGE PARENT STATE BY CHILD
+==============================
+parent
+-------
+ test(e,a) {
+        console.log(a.target.innerHTML);  //here e will be hello and a.target.innerHTML is the date
+        this.setState({
+            test:a.target.innerHTML
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <TimeButton  onTestChange={this.test}/> // if u want to update comps again  <TimeButton  name={this.state.test} onTestChange={this.test}/>
+                <TimeButton  onTestChange={this.test}/>
+                <TimeButton  onTestChange={this.test}/>
+                <div>{this.state.test}</div>
+            </div>
+        )
+
+child
+----------
+
+render() {
+        return (
+            <button onClick={this.props.onTestChange.bind(this,"hello")}>{this.state.date.toLocaleTimeString()}</button>
+        )
+    }
+    }

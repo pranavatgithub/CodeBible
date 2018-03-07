@@ -1,0 +1,9 @@
+PROMISE WHEN
+-----------------------
+
+ var appendfinish=function(){
+                                return $("#appender_body").append(data); 
+                            };
+ $.when( appendfinish() ).done(function() {                 //only done while appendfinish gets data (so it simpy watch the event)
+                                $("#loadingpic").hide();
+                            });

@@ -1,0 +1,13 @@
+v-html
+=============
+
+<button v-html="rawHtml"></button> //op will be <button><span>xxxx</span></button>
+
+export default {
+    props: ['user'],
+    data() {
+      return {
+        rawHtml: "<span>xxxx</span>"
+      }
+    }
+  }

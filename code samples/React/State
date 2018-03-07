@@ -1,0 +1,55 @@
+concept of state
+=============================================================
+//external fn
+
+function CreateList(item) {
+    return (
+        <button onClick={item.onClick}>{item.item.title}</button> //defining onclick of each component
+    )
+}
+
+
+class App extends Component {
+
+    constructor() {
+        super();  //every constructor have super() method. this method involks first 
+        this.state = {  //this object refers to the state of this component
+            list: [
+                {
+                    title: 'React',
+                },
+                {
+                    title: 'Redux',
+                }
+            ]
+        }
+    };
+    onClick() {
+        this.Additems();
+    }
+    Additems() {
+        var arr2 = this.state.list.slice();
+        arr2.push({title: "new Name" + Math.random() * 100})
+        this.setState({list: arr2})
+    }
+    render() {
+        var name = "pranav";
+        var listButtons = [];  //no need of this array see example 2
+        this.state.list.forEach((item, index) => {
+            listButtons.push(<CreateList item={item} onClick={() => this.onClick()}/>) //defining array of components--passing data and passing function in the scope
+        });
+
+        return (
+            <div className="App">
+                {listButtons} //just use this to render the array listbuttons(since it is an html array)
+            </div>
+        );
+    }
+
+//example 2
+
+ {
+                    this.state.list.map((item, index) => {
+                    return (<CreateList item={item} onClick={() => this.onClick()}/>) //put this code in the place of listButtons 
+                })
+                }

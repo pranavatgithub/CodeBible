@@ -1,0 +1,10 @@
+
+
+myApp.controller("myController",function ($scope) {  //create a controller for the module and pass its name and function to be involked this ,it is name of ngcontroller
+    $scope.name="Hello angular!!!!"; 
+});
+
+the name variable is accessed by page as {{name}}
+
+
+

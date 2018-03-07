@@ -1,0 +1,9 @@
+To integer conversion
+-----------------------------------------------------------------------
+var a="26px";
+a=parseInt(a);  //removes anything after a number so here result is 26
+
+From binary to integer
+---------------------
+var item="0011101"; //binary
+parseInt(item,2); ----->result will be a number

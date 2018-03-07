@@ -1,0 +1,19 @@
+final- unchangeble variable
+==================================
+
+if u initialize a variable as final u cant change it later
+
+ex final int a=10;
+then later a=20 will throw error
+
+
+
+
+blank final var
+--------------------
+
+final String PAN_CARD_NUMBER;  
+
+once initialize it also cant be overrdiden  .we can only initialise this variable inside a constructor else will be error
+
+

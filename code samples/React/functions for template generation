@@ -1,0 +1,26 @@
+var UlList = (names) => {
+    return (
+        <li>{names}</li>
+    )
+};
+
+function List2(items) {
+    return (
+        <li>{items.names}</li>
+    )
+}
+
+class App extends Component {
+
+
+    render() {
+        return (
+          
+                <ul>
+                    {UlList("pranav")} --------->calling arrow fn //should be camelcased
+                    <List2 names="pranav2"/>
+                </ul>
+          
+        );
+    }
+}

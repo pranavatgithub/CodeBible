@@ -1,0 +1,22 @@
+// function expression
+function () { ... }
+
+// arrow function expression when no args
+() => { ... }
+
+//when only 1 arg
+item => { ... }
+(item) => { ... }
+
+//when many
+(item, key) => { ... }
+
+//map fn
+
+array.map(function(item,index){
+return item;
+})
+
+array.map((item,index)=>{
+return item;
+})

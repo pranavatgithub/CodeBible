@@ -1,0 +1,76 @@
+1. All React components must act like pure functions with respect to their props.
+
+what is a pure fn???
+
+function sum(a, b) {  //inputs are readonly thats it
+  return a + b;
+}
+
+not a pure fn
+---------------
+function impure(a,b){
+return a.test=b.test;  //so changed --> impure
+}
+
+
+2. METHODS OF A CLASS
+=============================
+
+constructor()   ----------> inside this define state and class level variables
+componentWillMount() ----------> execute before mounting the component (if u want to initialize something before load do this)
+componentDidMount()  ----------> execute just after this component loaded        /////////////////////CALLED LIFECYCLE HOOOOKKKKS
+componentWillUnmount() ----------> remove everything after a component lifecycle over / removed from DOM
+render()
+
+3.Do Not Modify State Directly
+
+this.state.comment = 'Hello'; //wrong!!!!!!
+
+this.setState({comment: 'Hello'}); //correct!!!!   it will merge the state not delete and add 
+
+The only place where you can assign this.state is the constructor. !important
+
+4.state & props updates may be async so cant rely
+
+// Wrong
+this.setState({
+  counter: this.state.counter + this.props.increment
+});
+
+so if u want to update state based on prev state values do following
+
+// Correct
+this.setState((prevState, props) => ({
+  counter: prevState.counter + props.increment
+})); 
+
+5.A good rule of thumb is that elements inside the map() call need keys
+
+function ListItem(props) {
+  // Correct! There is no need to specify the key here:
+  return <li>{props.value}</li>;
+}
+
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =>
+    // Correct! Key should be specified inside the array.
+    <ListItem key={number.toString()}
+              value={number} />
+
+  );
+  return (
+    <ul>
+      {listItems}
+    </ul>
+  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+  <NumberList numbers={numbers} />,
+  document.getElementById('root')
+);
+
+Keys used within arrays should be unique among their siblings. However they don’t need to be globally unique. We can use the same keys when we produce two different arrays
+

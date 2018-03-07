@@ -1,0 +1,11 @@
+end selection in chaining
+--------------------------
+
+$('div').click(function() {
+$(this).fadeTo(250,1)
+.find('h2')
+.css('color','#F30')   //.end() after the .css('color', '#F30); this code returns the jQuery selection back to the div,.find('p') will find all <p> tags inside the div.
+.end()
+.find('p')
+.('backgroundColor','#F343FF');
+}); // end click
