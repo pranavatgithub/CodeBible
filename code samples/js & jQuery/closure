@@ -1,3 +1,28 @@
+closures --> function inside function beauty
+=============================================
+concept
+-------
+
+function Main(x){
+    return function Sub(y){
+        return x + y;
+    }
+}
+
+Main(1)(2); ====>>> 3
+
+or we can even call like this
+var x = Main(1);
+x(2) ===> gives 3
+
+1.Main(1)  <-- get the rf of fn Sub()
+2.Call Sub(2) <--- execute Sub(y) inner fn 
+
+the cool thing is it remember the value of X so we will get 3
+
+Complex example
+================
+
 function addTogether() {
     var args=Array.from(arguments);
     var x;
