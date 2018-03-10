@@ -1,0 +1,9 @@
+Objects that are not part of JS specs
+======================================
+
+You think document.getElementById("test"); is coming from js?
+
+LOL you're wrong , its not part of js specs
+its part of browser specs , we call the object document as host object
+
+alert() is another example

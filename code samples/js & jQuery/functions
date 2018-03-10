@@ -1,0 +1,8 @@
+IIFE Immediately involked function
+===================================
+
+(function(){
+    alert();
+})();
+
+this function will Immediately involked
