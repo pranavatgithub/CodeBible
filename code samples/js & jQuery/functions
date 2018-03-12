@@ -6,3 +6,11 @@ IIFE Immediately involked function
 })();
 
 this function will Immediately involked
+
+IIFE with args[]
+=================
+
+(function IIFE( global ){
+    ..............
+    ..............
+})( window );
