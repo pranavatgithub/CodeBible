@@ -1,16 +1,28 @@
-IIFE Immediately involked function
-===================================
+//IIFE Immediately involked function
+//===================================
 
 (function(){
     alert();
 })();
 
-this function will Immediately involked
+//this function will Immediately involked
 
-IIFE with args[]
-=================
+//IIFE with args[]
+//=================
 
 (function IIFE( global ){
-    ..............
-    ..............
+    //..............
+    //..............
 })( window );
+
+//IIFE with fn as arg[]
+//======================
+
+var a = 2;
+(function IIFE( def ){
+    def( window );
+})(function def( global ){
+    var a = 3;
+    console.log( a ); // 3
+    console.log( global.a ); // 2
+});

@@ -1,0 +1,26 @@
+//All declarations are hoisted up how??
+
+a = 2; // whenever it sees var a, it automatically creates var a before so var a; statement hosisted up
+var a;
+console.log( a );  // 2 
+
+//actual result of above code
+
+var a;
+a = 2;
+console.log(a);
+
+//--------------------
+
+function test(){
+    console.log(a); // undefined
+    var a = 10;
+}
+
+//actual result of above fn
+
+function test(){
+    var a;
+    console.log(a); // undefined
+    var a = 10;
+}

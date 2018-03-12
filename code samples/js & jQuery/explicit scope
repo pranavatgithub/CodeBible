@@ -1,0 +1,17 @@
+//What is explicit scoping
+//==========================
+
+function test(a){
+    console.log(a);
+}
+let b = 20;
+//========================
+//This thing is wrapped inside {} so it is a scope in ES6+ it won't leak out/ it won't affect anyone , crazy right!
+//These things are totally treat differently
+{
+    let b = 10;
+    test(b); //10
+}
+//==========================
+test(b); //20 how????
+
