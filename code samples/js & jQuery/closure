@@ -1,7 +1,12 @@
-closures --> function inside function beauty
-=============================================
-concept
--------
+// closures --> function inside function beauty
+//=============================================
+// concept
+// -------
+
+/*DEFN:- 
+    Closure is when a function is able to remember and access its lexical scope even when
+    that function is executing outside its lexical scope.
+*/
 
 function Main(x){
     return function Sub(y){
@@ -9,19 +14,32 @@ function Main(x){
     }
 }
 
-Main(1)(2); ====>>> 3
+Main(1)(2); // 3
 
-or we can even call like this
+//or we can even call like this
 var x = Main(1);
-x(2) ===> gives 3
+x(2) // gives 3
 
-1.Main(1)  <-- get the rf of fn Sub()
-2.Call Sub(2) <--- execute Sub(y) inner fn 
+// 1.Main(1)  <-- get the rf of fn Sub()
+// 2.Call Sub(2) <--- execute Sub(y) inner fn 
 
-the cool thing is it remember the value of X so we will get 3
+//the cool thing is it remember the value of X so we will get 3
 
-Complex example
-================
+//one more sample
+
+function foo() {
+    var a = 2;
+    function bar() {
+        console.log( a );
+    }
+    return bar;
+    }
+var baz = foo();
+baz(); // 2 -- Whoa, closure was just observed, man. u called bar() but now bar() is executing outside its lexical scope, 
+      // but it still got the value of variable a from its scope!  
+
+//Complex example
+//================
 
 function addTogether() {
     var args=Array.from(arguments);
@@ -45,3 +63,52 @@ function addTogether() {
     }
 }
 addTogether(2)(3);  //return 5 how???  first trigger  addTogether(2) ---> it will return  function(y)...  again it will call that function with next set of closure(3)
+
+//tricky samples
+
+for (var i=1; i<=5; i++) {
+    setTimeout( function timer(){
+        console.log( i );
+    }, i*1000 );
+}
+// o/p of above code? 1,2,3... ?? LOL NO!!! its 6 always WTF??
+
+//because for loop instantly finishes but setTimeout start working later at that time i will be 6 (last i++ value)
+
+// how can i make it proper?
+// lot of ways!!!!
+
+// 1.
+for (var i = 1; i <= 5; i++) {
+    (function(){
+        var j = i;
+        setTimeout( function timer(){
+            console.log( j );
+        }, j*1000 );
+    })();
+}
+//2.
+for (var i=1; i<=5; i++) {
+    (function(j){ // if this is i also no issue
+        setTimeout( function timer(){
+            console.log( j );
+        }, j*1000 );
+    })( i ); //passing i 
+}
+
+//3
+
+for (var i=1; i<=5; i++) {
+    let j = i; // yay, block-scope for closure!
+        setTimeout( function timer(){
+            console.log( j );
+    }, j*1000 );
+    }
+
+//4
+
+for (let i=1; i <=5; i++) {
+    setTimeout( function timer(){
+        console.log( i );
+    }, i*1000 );
+    }
