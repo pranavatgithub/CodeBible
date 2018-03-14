@@ -1,7 +1,7 @@
 //What is explicit scoping
 //==========================
 
-function test(a){
+function test(a) { // this is a block scope
     console.log(a);
 }
 let b = 20;
@@ -13,5 +13,10 @@ let b = 20;
     test(b); //10
 }
 //==========================
-test(b); //20 how????
+test(b); //20 how???? because b=10 in some other scope (not global atleast)
 
+// Let statement form (Warning not supported in ES6 also)
+let (a = 2) {
+    console.log(a); // 2
+}
+console.log(a); // ReferenceError

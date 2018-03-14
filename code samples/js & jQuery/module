@@ -61,3 +61,56 @@ var MyModules = (function Manager() {  // base module
 })();
 
 // Extending features to above 
+
+MyModules.define("bar", [], function () {
+    function hello(who) {
+        return "Let me introduce: " + who;
+    }
+    return {
+        hello: hello
+    };
+});
+MyModules.define("foo", ["bar"], function (bar) {
+    var hungry = "hippo";
+    function awesome() {
+        console.log(bar.hello(hungry).toUpperCase());
+    }
+    return {
+        awesome: awesome
+    };
+});
+var bar = MyModules.get("bar");
+var foo = MyModules.get("foo");
+console.log(
+    bar.hello("hippo")
+); // Let me introduce: hippo
+foo.awesome(); // LET ME INTRODUCE: HIPPO
+
+// here comes the ES-6 King of modules::::
+// different modules should be in different files
+
+//bar.js
+function hello(who) {
+    return "Let me introduce: " + who;
+}
+export hello;
+
+//foo.js
+// import only `hello()` from the "bar" module
+import hello from "bar";
+var hungry = "hippo";
+function awesome() {
+    console.log(
+        hello(hungry).toUpperCase()
+    );
+}
+export awesome;
+
+//import severel files
+// import the entire "foo" and "bar" modules
+module foo from "foo";
+module bar from "bar";
+console.log(
+    bar.hello("rhino")
+); // Let me introduce: rhino
+foo.awesome(); // LET ME INTRODUCE: HIPPO

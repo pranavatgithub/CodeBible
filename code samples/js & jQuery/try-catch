@@ -1,0 +1,5 @@
+try{throw 2}catch(a){ //thrown item is catched
+console.log( a ); // 2
+}
+console.log( a ); //undefined  that means they implemented block scope variable in catch block in ES3 itself , 
+//but we got block scope variables in ES6 in the form of let,const etc ,, so sad!
