@@ -1,7 +1,7 @@
 //IIFE Immediately involked function
 //===================================
 
-(function(){
+(function () {
     alert();
 })();
 
@@ -10,19 +10,34 @@
 //IIFE with args[]
 //=================
 
-(function IIFE( global ){
+(function IIFE(global) {
     //..............
     //..............
-})( window );
+})(window);
 
 //IIFE with fn as arg[]
 //======================
 
 var a = 2;
-(function IIFE( def ){
-    def( window );
-})(function def( global ){
+(function IIFE(def) {
+    def(window);
+})(function def(global) {
     var a = 3;
-    console.log( a ); // 3
-    console.log( global.a ); // 2
+    console.log(a); // 3
+    console.log(global.a); // 2
 });
+
+//CALLING A FUNCTION WITH DIFFERENT KIND OF ARG STRUCTURES
+
+function foo(a, b) {
+    console.log("a:" + a + ", b:" + b);
+}
+// spreading out array as parameters
+foo.apply(null, [2, 3]); // a:2, b:3
+
+var ø = Object.create( null );
+foo.apply( ø, [2, 3] );  // safer binding. passing a pure empty obj, will prevent global obj mutations etc 
+
+// currying with `bind(..)`
+var bar = foo.bind(null, 2);
+bar(3); // a:2, b:3

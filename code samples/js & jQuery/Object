@@ -1,0 +1,23 @@
+//literal form
+var x = {
+    "a": 1,
+    "b": 2
+}
+
+//constructed form
+var myObj = new Object();
+myObj.key = value;
+
+
+// fetch all keys
+Object.keys(x) // return [a,b] in array form
+
+//Computed property method
+
+var prefix = "foo";
+var myObject = {
+    [prefix + "bar"]: "hello", //key is evaluated and assigned
+    [prefix + "baz"]: "world"
+};
+myObject["foobar"]; // hello
+myObject["foobaz"]; // world

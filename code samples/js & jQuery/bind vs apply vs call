@@ -1,4 +1,5 @@
 /*
+EXPICIT BINDING
 .apply() will execute the function showDetails with the fruit object as the context for this within it. 
 The function parameters will be passed in an ---array--- after the context object as shown below.
 */
@@ -34,3 +35,67 @@ bound() // Apple large: $10/kg
 
 var bound = showDetails.bind(fruit) // see no args passed
 bound('medium', 7) // Apple medium: $7/kg here im passing cool
+
+// binding in advance
+
+function foo(el) {
+    console.log(el, this.id);
+}
+var obj = {
+    id: "awesome"
+};
+// use `obj` as `this` for `foo(..)` calls
+[1, 2, 3].forEach(foo, obj); // 1 awesome 2 awesome 3 awesome , internally the function foo binds the obj , really?
+
+// NEW binding
+
+function foo(a) {
+    this.a = a;
+}
+var bar = new foo(2);
+console.log(bar.a); // 2
+
+//IMPLICIT BINDING
+
+function foo() {
+    console.log(this.a);
+}
+var obj1 = {
+    a: 2,
+    foo: foo
+};
+var obj2 = {
+    a: 3,
+    foo: foo
+};
+obj1.foo(); // 2  <---- implicitley binded fn call
+obj2.foo(); // 3 <----again I binded
+
+//but explicit binding rules em all!!
+
+obj1.foo.call(obj2); // 3  <--- see that it overriden the props
+obj2.foo.call(obj1); // 2
+
+// wait what about new binding() ??
+
+function foo(something) {
+    this.a = something;
+}
+var obj1 = {
+    foo: foo
+};
+var obj2 = {};
+obj1.foo(2);
+console.log(obj1.a); // 2
+obj1.foo.call(obj2, 3);
+console.log(obj2.a); // 3
+var bar = new obj1.foo(4);
+console.log(obj1.a); // 2 because new won't change obj1.a it creates new and assign to bar 
+console.log(bar.a); // 4  
+
+// SAFE BINDING
+
+var ø = Object.create( null );
+foo.apply( ø, [2, 3] );  // safer binding. passing a pure empty obj, will prevent global obj mutations etc 
+// it can be called instead of 
+foo.apply( null, [2, 3] ); 
