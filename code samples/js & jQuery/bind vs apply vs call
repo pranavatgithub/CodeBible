@@ -1,0 +1,36 @@
+/*
+.apply() will execute the function showDetails with the fruit object as the context for this within it. 
+The function parameters will be passed in an ---array--- after the context object as shown below.
+*/
+
+var fruit = {
+    name: 'Apple'
+}
+
+function showDetails(size, price) {
+    console.log(this.name + ' ' + size + ': $' + price + '/kg')
+}
+
+showDetails.apply(fruit, ['small', 1]) // Apple small: $1/kg
+
+/*
+.call() will execute the function showDetails with the fruit object as the context for this within it. 
+The function parameters will be passed in a comma-separated format after the context object.
+*/
+
+showDetails.call(fruit, 'medium', 5) // Apple medium: $5/kg
+
+/*
+.bind() will return a function, which can execute the function showDetails with the fruit object as the context 
+for this within it. The function parameters are passed like .call().
+*/
+
+var bound = showDetails.bind(fruit, 'large', 10)
+bound() // Apple large: $10/kg
+
+// advantages :-
+// we can call bound() at some other time (not IIFE)
+// args[] can be passed differently
+
+var bound = showDetails.bind(fruit) // see no args passed
+bound('medium', 7) // Apple medium: $7/kg here im passing cool
