@@ -1,0 +1,65 @@
+<style>
+    .container{
+        display: flex;
+        border: 1px solid red;
+        flex-direction: row; /* axis will be horizontal .. if column then vertical  here contents will be placed horizontally*/
+        justify-content: center;
+        align-items: stretch; /* allign items in the div vertically (in flex-dir:row) & vice versa deault is stretch*/
+    }
+    .container > div{
+        border: 1px solid goldenrod;
+        padding: 30px;
+    }
+    .B{
+        /* margin-left: auto;  if u want to allign B & C to RHS do like this and remove flex-dir & justify from container*/
+    }
+</style>
+<body>
+<div class="container">
+    <div class="A">A</div>
+    <div class="B">B</div>
+    <div class="C">C</div>
+</div>
+</body>
+<!--
+    Use case :-
+
+    1. if u want to push A in the left & B & C at right what u do??
+        add justify-content:flex-end; to parent container
+        add margin-right:auto to A.
+        so it will  be 
+        |A...............BC|
+    2. Fill A & B & C in equal width
+        select .container > div  & give flex : 1;
+    3. B should be twice wider than A & C
+        select .container > B  and add flex :2 ; don't remove use case 2 styles OK? it is also required
+    4. A & C have no size specs but B should be responsive and take full width
+        remove case 2 styles add case 3 styles
+    5. A & C are responsive & B is fixed width
+        add flex:1 to A and B and remove all flex props from B. 
+    6. you know how to allign items using align-items . now i need to allign C in top postion
+        select A and give align-self: flex-start;
+    7. need to give some width to each A B C but it won't fit into container
+        by default flex-wrap:nowrap; so 1 column per row . to overcome this u need to give flex-wrap:wrap;
+
+
+
+    flex in depth
+    flex : 1;
+    means flex-grow:1  <-- extra space distribution ratio 
+          flex-shrink:1 <-- default is 1 means it will shrink even if the container is smaller than flex-basis
+          flex-basis:1 <-- it is the base width , we can give 100px 
+
+          say container in 500px , A=200 & b= 200px (flex basis value ok?) if flex-grow = 0 extra space 100px will be evident
+          if u want to prevent shrinking give flex-shrink:0,
+          if u have to make A&B shrink at constant rate and propotion give flex-shrink:1 to both
+          if u want to shrink A more than B , give flex-shrink of A to > Bs 
+    Order
+    order:0 default
+    We can order the elems A& B& C
+    by default order will be 0 to A,B,C
+    if i give order of C to -1 it will be the first one in the list
+    if i give A to order 1 it will be the last one in the list
+
+
+-->
