@@ -21,3 +21,8 @@ JSON.stringify(a, function(k,v){
      if(k!= "a") return v; 
      });
      //'{"b":10,"c":20}' it will act like a middleware/helper fn 
+
+// we can give 1 more arg 3rd one called space
+
+JSON.stringify(a, null, 3); // 3 indentation
+JSON.stringify(a, null, "--"); //add -- before each line 
