@@ -179,3 +179,8 @@ var a= [ 1,2,3]
 for(let w of a){
   console.log(w);
 }
+
+//array to string
+
+var a=[1,2,3];
+a.toString(); // "1,2,3"
