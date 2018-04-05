@@ -41,3 +41,16 @@ foo.apply( ø, [2, 3] );  // safer binding. passing a pure empty obj, will preve
 // currying with `bind(..)`
 var bar = foo.bind(null, 2);
 bar(3); // a:2, b:3
+
+// ES6 default args[]
+
+function foo( a = 42, b = a + 1 ) { // this is how
+    console.log(
+        arguments.length, a, b,
+        arguments[0], arguments[1]
+);
+}
+foo(); // 0 42 43 undefined undefined see even if we provided default value the arg[] is empty
+foo( 10 ); // 1 10 11 10 undefined
+foo( 10, undefined ); // 2 10 11 10 undefined
+foo( 10, null ); // 2 10 null 10 null

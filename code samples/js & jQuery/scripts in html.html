@@ -1,0 +1,38 @@
+<script>
+    foo();
+</script>
+<!-- won't work  because hoisting won't work across different script regions-->
+<script>
+    function foo() {
+        alert()
+    }
+</script>
+
+<!-- BUT following will work -->
+
+<script>
+    foo(); // will work because foo() will be hoisted in this script block 
+
+    function foo() {
+        alert();
+    }
+</script>
+
+
+<script>
+    function foo() {
+        alert();
+    }
+</script>
+<script>
+    foo();
+</script>
+
+<!-- DYnamically create script  -->
+<script>
+    var greeting = "Hello World";
+    var el = document.createElement("script");
+    el.text = "function foo(){ alert( greeting );\
+} setTimeout( foo, 1000 );";
+    document.body.appendChild(el);
+</script>

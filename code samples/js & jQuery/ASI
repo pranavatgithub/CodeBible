@@ -1,0 +1,7 @@
+// Automatic Semicolon Insertion
+
+if u miss a Semicolon don't worry JS will add it for u
+it will happen on parser-error routine , so dont make this error, JS parser needs ;
+
+My take: use semicolons wherever you know they are "required," and limit your
+assumptions about ASI to a minimum
