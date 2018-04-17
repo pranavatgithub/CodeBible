@@ -27,3 +27,13 @@ Number.MIN_SAFE_INTEGER;
 Number.isInteger( 42 ); // true
 Number.isInteger( 42.000 ); // true
 Number.isInteger( 42.3 ); // false
+
+//check if it is not number
+
+isNaN(19); //false
+isNaN("sss"); //true
+
+//check if it is integer
+
+Number.isInteger(10); //true
+Number.isInteger(10.5); //false
