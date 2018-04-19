@@ -143,8 +143,111 @@ for (var v of something()) {
     console.log(v);
     // don't let the loop run forever!
     if (v > 500) {
-        break;
+        break; // terminate a generator 1 way
     }
 }
 // 1 9 33 105 321 969
+
+
+// cleaning up a finished iterator
+
+function* something() {
+    try {
+        var nextVal;
+        while (true) {
+            if (nextVal === undefined) {
+                nextVal = 1;
+            } else {
+                nextVal = (3 * nextVal) + 6;
+            }
+            yield nextVal;
+        }
+    }
+    // cleanup clause
+    finally {
+        console.log("cleaning up!"); // will execute even if something() is done or errored
+    }
+}
+
+var it = something();
+it.return("I'm Done"); // terminates the above iterator
+
+
+// ASYNC GENERATOR FUNCTIONS AWESOMENESS
+
+function foo(x, y) { // where is the promise and non sense?? fuck all
+    ajax(
+        "http://some.url.1/?x=" + x + "&y=" + y,
+        function (err, data) {
+            if (err) {
+                // throw an error into `*main()`
+                it.throw(err);
+            } else {
+                // resume `*main()` with received `data`
+                it.next(data);
+            }
+        }
+    );
+}
+
+function* main() {
+    try {
+        var text = yield foo(11, 31);
+        console.log(text);
+    } catch (err) {
+        console.error(err);
+    }
+}
+var it = main();
+// start it all up!
+it.next();
+
+
+//PROMISE WITH GENERATOR
+
+function foo(x, y) {
+    return request(
+        "http://some.url.1/?x=" + x + "&y=" + y
+    );
+}
+
+function* main() {
+    try {
+        var text = yield foo(11, 31);
+        console.log(text);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+var it = main();
+var p = it.next().value;
+// wait for the `p` promise to resolve
+p.then(
+    function (text) {
+        it.next(text);
+    },
+    function (err) {
+        it.throw(err);
+    }
+);
+
+// some advanced scenario with promise all
+
+function* foo() {
+    // make both requests "in parallel," and
+    // wait until both promises resolve
+    var results = yield Promise.all([
+        request("http://some.url.1"),
+        request("http://some.url.2")
+    ]);
+    var r1 = results[0];
+    var r2 = results[1];
+    var r3 = yield request(
+        "http://some.url.3/?v=" + r1 + "," + r2
+    );
+    console.log(r3);
+}
+
+
 // ========================================== ======== ======
