@@ -104,3 +104,9 @@ for (var k in myObject) {
     console.log(k, myObject[k]);
 }
 // "a" 2 WTF where is b? boy its not enumerable, even if "b" in myObject = true , b won't show here
+
+// object short hand property ES6
+var test = [];
+var w = {
+    test // is equal to test: test
+}
