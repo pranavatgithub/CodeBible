@@ -55,6 +55,48 @@ foo(10); // 1 10 11 10 undefined
 foo(10, undefined); // 2 10 11 10 undefined
 foo(10, null); // 2 10 null 10 null
 
+// use cases of default arg value
+function foo(x = 11, y = 31) {
+    console.log(x + y);
+}
+foo(); // 42
+foo(5, 6); // 11
+foo(0, 42); // 42
+foo(5); // 36
+foo(5, undefined); // 36 <-- `undefined` is missing
+foo(5, null); // 5 <-- null coerces to `0`
+foo(undefined, 6); // 17 <-- `undefined` is missing
+foo(null, 6); // 6 <-- null coerces to `0`
+
+// default values as expressions
+
+function bar(val) {
+    console.log("bar called!");
+    return y + val;
+}
+
+function foo(x = y + 3, z = bar(x)) {
+    console.log(x, z);
+}
+var y = 5;
+foo(); // "bar called"
+// 8 13
+foo(10); // "bar called"
+// 10 15
+y = 6;
+foo(undefined, 10); // 9 10
+
+
+// issue with some cases
+var w = 1,
+    z = 2;
+
+function foo(x = w + 1, y = x + 1, z = z + 1) { // here z is the villain how?
+    //z is not initialised (its present in LHS of z + 1 butvalue don't know so err)
+    console.log(x, y, z);
+}
+foo(); // ReferenceError
+
 
 
 // ES6 Generators !!!!! ======================
