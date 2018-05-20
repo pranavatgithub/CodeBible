@@ -110,3 +110,83 @@ var test = [];
 var w = {
     test // is equal to test: test
 }
+
+// re-defined object literals
+
+var x = 2,
+    y = 3,
+    o = {
+        x: x,
+        y: y
+    };
+
+var x = 2,
+    y = 3,
+    o = {
+        x, // can be write like this as well
+        y
+    };
+
+// what about fns??
+
+var o = {
+    x: function () {
+        // ..
+    },
+    y: function () {
+        // ..
+    }
+}
+
+var o = {
+    x() {
+        // ..
+    },
+    y() {
+        // ..
+    }
+}
+
+// we can use generators as well
+
+var o = {
+    * foo() {
+        //----------
+    }
+};
+
+//object getter / setter ES5
+
+var o = {
+    __id: 10,
+    get id() {
+        return this.__id++;
+    },
+    set id(v) {
+        this.__id = v;
+    }
+}
+o.id; // 10
+o.id; // 11
+
+// specify expression  as key
+
+var prefix = "user_";
+var o = {
+    baz: function () {},
+    [prefix + "foo"]: function () {},
+    [prefix + "bar"]: function () {}
+};
+
+// prototype linkage via object literels
+
+var o1 = {
+    // ..
+};
+var o2 = {
+    __proto__: o1,
+    // ..
+};
+
+// or by this
+
