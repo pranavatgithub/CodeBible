@@ -103,7 +103,7 @@ foo(); // ReferenceError
 
 var x = 1;
 
-function* foo() { // function* foo() everything is ok pos of * is no scene
+function* foo() { // function *foo() everything is ok pos of * is no scene
     x++;
     yield; // pause!
     console.log("x:", x);
@@ -291,5 +291,91 @@ function* foo() {
     console.log(r3);
 }
 
+// yield*
+
+function* foo() {
+    yield* [1, 2, 3];
+}
+
+// above fn equal to
+function* foo() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+//and can use it like
+function* bar() {
+    yield* foo();
+}
+
+// example
+
+function* foo() {
+    yield 1;
+    yield 2;
+    yield 3;
+    return 4;
+}
+
+function* bar() {
+    var x = yield* foo(); // 1,2,3 will returns but it won't stops
+    console.log("x:", x);
+}
+for (var v of bar()) {
+    console.log(v);
+}
+// 1 2 3
+// x: { value: 4, done: true }
+
+// completion early
+
+function* foo() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+var it = foo();
+it.next(); // { value: 1, done: false }
+it.return(42); // { value: 42, done: true } // i'm fed up so i'm stoping here
+it.next(); // { value: undefined, done: true }
+
+
+// generator and finally
+
+function* foo() {
+    try {
+        yield 1;
+        yield 2;
+        yield 3;
+    } finally {
+        console.log("cleanup!"); // will execute once done
+    }
+}
+for (var v of foo()) {
+    console.log(v);
+}
+// 1 2 3
+// cleanup!
+var it = foo();
+it.next(); // { value: 1, done: false }
+it.return(42); // cleanup!
+// { value: 42, done: true }
+
+
+//early abortion using throw! we don't always need return to stop an iterator
+
+function* foo() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+var it = foo();
+it.next(); // { value: 1, done: false }
+try {
+    it.throw("Oops!");
+} catch (err) {
+    console.log(err); // Exception: Oops!
+}
+it.next(); // { value: undefined, done: true }
 
 // ========================================== ======== ======

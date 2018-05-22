@@ -90,6 +90,23 @@ var {
 console.log(a, b, c, d, e); // 1 2 3 4 5
 console.log(w); // 6
 
+// more nesting
+
+var App = {
+    model: {
+        User: function () {
+            //chumma
+        }
+    }
+};
+// instead of:
+// var User = App.model.User;
+var {
+    model: {
+        User
+    }
+} = App;
+
 // destructuring + default params
 
 function f6({
@@ -143,3 +160,28 @@ var {
 } = bar();
 console.log(a, b, c, d); // 1 2 3 12 assume d is ot the in return value of foo()
 console.log(x, y, z, w); // 4 5 6 20 assume w ""
+
+//fn and destructuring
+
+function foo([x, y]) {
+    console.log(x, y);
+}
+foo([1, 2]); // 1 2
+foo([1]); // 1 undefined
+foo([]); // undefined undefined
+
+//fn arg with obj destructuring
+function foo({
+    x,
+    y
+}) {
+    console.log(x, y);
+}
+foo({
+    y: 1,
+    x: 2
+}); // 2 1
+foo({
+    y: 42
+}); // undefined 42
+foo({}); // undefined undefined

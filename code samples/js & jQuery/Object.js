@@ -8,7 +8,6 @@ var x = {
 var myObj = new Object();
 myObj.key = value;
 
-
 // fetch all keys
 Object.keys(x) // return [a,b] in array form
 
@@ -111,7 +110,7 @@ var w = {
     test // is equal to test: test
 }
 
-// re-defined object literals
+// re-defined object literals consise methods
 
 var x = 2,
     y = 3,
@@ -190,3 +189,4 @@ var o2 = {
 
 // or by this
 
+Object.setPrototypeOf( o2, o1 );

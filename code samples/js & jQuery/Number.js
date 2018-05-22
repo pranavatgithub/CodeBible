@@ -24,10 +24,9 @@ Number.MIN_SAFE_INTEGER;
 
 //check for integer
 
-Number.isInteger( 42 ); // true
+Number.isInteger( 42 ); // true 
 Number.isInteger( 42.000 ); // true
 Number.isInteger( 42.3 ); // false
-
 //check if it is not number
 
 isNaN(19); //false

@@ -12,7 +12,7 @@ for (var i = 9; i > 0; i -= 2) {
 
 // for in 
 var a = ["a", "b", "c", "d", "e"];
-for (var idx in a) {
+for (var idx in a) { //loops through indexes
   console.log(idx);
 }
 // 0 1 2 3 4 //index
