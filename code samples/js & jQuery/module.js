@@ -114,3 +114,9 @@ console.log(
     bar.hello("rhino")
 ); // Let me introduce: rhino
 foo.awesome(); // LET ME INTRODUCE: HIPPO
+
+// rename foo on export
+function foo() { // 
+
+}
+export { foo as bar };
