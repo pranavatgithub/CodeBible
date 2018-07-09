@@ -1,0 +1,14 @@
+/*
+make input/select having same size
+*/
+input , select{
+    width: 25%; /*some width*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; /* item width = width (includes padding & border)*/
+    box-sizing: border-box;
+    /* else
+    width = width + padding + border;
+    thats why sometimes we are getting different height/width for same values of width/
+    height applied
+    */
+  }

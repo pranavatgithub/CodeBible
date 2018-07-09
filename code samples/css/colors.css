@@ -1,0 +1,22 @@
+p{
+    color: rgb(red, green, blue); /* 0 - 255 values*/
+    color: rgba(red, green, blue, alpha); /* alpha - 0 to 1*/ 
+    color: #acdfce; /* hex values*/
+}
+
+/* hue saturation lightness*/
+
+div {
+    background-color: hsl(hue, saturation, lightness);
+    /*hue - 0 to 360 color wheel ranging from 0 to 360 angle*/
+    /* saturation - amount of gray in it 0% to 100%*/
+    /* lightness - amount of white/black in it 0% black to 100% white*/
+    /*
+    red	hsl(0, 100%, 50%)
+    yellow	hsl(60, 100%, 50%)
+    green	hsl(120, 100%, 50%)
+    cyan	hsl(180, 100%, 50%)
+    blue	hsl(240, 100%, 50%)
+    magenta	hsl(300, 100%, 50%)
+*/
+}

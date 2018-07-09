@@ -1,0 +1,8 @@
+p{
+    text-align: center; /*left right*/
+    text-align: justify; /*causes all lines of text 
+    except the last line to meet the left and right edges of the line box. 
+    all lines except last will stretch from left to right all the way....
+    last line will be an exception (aligned to left)
+    */
+}

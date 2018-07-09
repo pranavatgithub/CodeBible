@@ -1,8 +1,0 @@
-box-shadow:5px 10px 12px 15px #fffse;
-
-params : 1- horizontal shadow
-         2-vertical shadow
-         3-blur strength
-         4-spread
-         5.color
--ve value supported 

@@ -1,0 +1,13 @@
+/*
+define variables
+CAUTION:: NEW FEATURE INTRODUCED IN 2016
+no IE11
+EDGE 15+
+*/
+:root{  /* highest possible selection in DOM*/
+    --main-bg-color: coral;
+}
+div {
+    color: var(--main-bg-color);
+    background: var(--penguin-skin, black); /* fallback if something went wrong browser use black*/
+}
