@@ -20,3 +20,27 @@ div {
     magenta	hsl(300, 100%, 50%)
 */
 }
+
+/* color gradient */
+
+/*  syntax
+background: linear-gradient(gradient_direction, color 1, color 2, color 3, ...); 
+*/
+div{
+    background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
+}
+/*repeating linear gradient*/
+
+div{ 
+    border-radius: 20px;
+    width: 70%;
+    height: 400px;
+    margin:  50 auto;
+    background: repeating-linear-gradient(
+      45deg,
+      yellow 0px, /*starts at 0px*/
+      yellow 40px, /*ends at 40px*/
+      black 40px, /*starts at 40px*/
+      black 80px /*starts at 80px*/
+    );
+  }
