@@ -36,3 +36,15 @@ isNaN("sss"); //true
 
 Number.isInteger(10); //true
 Number.isInteger(10.5); //false
+
+//parse string to number
+
+var x = parseInt('12px');
+// x; 12
+var z = parseInt("test");
+//z NaN
+
+// parse int with radix -- for converting numbers to different base
+
+var k = parseInt(1010, 2);
+//  k; will be 10  1010 is eq to 10 in base 10 system (so base 2 to 10)
