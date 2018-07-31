@@ -1,6 +1,6 @@
 /* <ul>
     <li * ngFor="let name of names" > // names = [a,b,c]
-        <app-user-item [name]="name" > </app-user-item> 
+        <app-user-item [name]="name" > </app-user-item> ---> pass item to app-user-item 
     </li >
 </ul>
 */
