@@ -26,7 +26,7 @@ var b = a.slice();
 //DELETE ITEM AT A SPECIFIC INDEX
 //---------------------------------
 
-var a = a.splice(index, howmany);
+var a = a.splice(index=0, howmany=0);
 
 //CONCAT
 //------
@@ -64,7 +64,7 @@ var a = ['a', 'b', 'c', 'd', 'a', 'b'];
 console.log(a.lastIndexOf('b')); // logs 5
 
 var a = ['a', 'b', 'c', 'd', 'a', 'b'];
-console.log(a.IndexOf('b')); // logs 1
+console.log(a.indexOf('b')); // logs 1
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -157,7 +157,7 @@ var a = [
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-REDUCE
+//REDUCE
 //---------------------------------------
 
 var array = [4, 5, 6, 7, 8];
@@ -235,10 +235,20 @@ a.find(function matcher(v) {
   return v == 7; // undefined
 });
 
-// values, entries , keys
+// Re ordering array elems -not recommended monkey patch!!
 
-var a = [1, 2, 3];
-[...a.values()]; // [1,2,3]
-[...a.keys()]; // [0,1,2]
-[...a.entries()]; // [ [0,1], [1,2], [2,3] ]
-[...a[Symbol.iterator]()]; // [1,2,3]
+Array.prototype.move = function (from, to) {
+  this.splice(to, 0, this.splice(from, 1)[0]);
+};
+
+var ar = [1,2,3,4,5];
+ar.move(0,3);
+console.log(ar) // 2,3,4,1,5
+
+// instead swap can be like following
+
+var arr = [1,2,3,4,5];
+var tmp = arr.splice(0,1); // delete 1 item from 0th index
+tmp; // [1]
+arr.splice(1,0,...tmp); // add 1 item at 1st position 
+arr; // [2,1,3,4,5]

@@ -1,9 +1,13 @@
+//variables plain
 var fullName: string;
 var age: number = 36;
 var married: boolean = true;
+
+// arrays
 var jobs: Array<string> = ['IBM', 'Microsoft', 'Google'];
 var jobs: string[] = ['Apple', 'Dell', 'HP'];
 
+// enums
 enum Role {Employee, Manager, Admin};
 var role: Role = Role.Employee;
 console.log(role); // 0
