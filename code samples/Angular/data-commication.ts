@@ -22,6 +22,9 @@ export class UserItemComponent implements OnInit {
     @Output() interaction: EventEmitter = new EventEmitter<any>(); 
     constructor() {}
     ngOnInit() { }
+    clickTest(){
+        this.interaction.emit('im the data!');
+    }
 }
 
 // another way of passing component

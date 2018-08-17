@@ -1,0 +1,21 @@
+<div class="container" [ngSwitch]="myVar">
+    <div *ngSwitchCase="'A'">Var is A</div>
+    <div *ngSwitchCase="'B'">Var is B</div>
+    <div *ngSwitchCase="'C'">Var is C</div>
+    <div *ngSwitchDefault>Var is something else</div>
+</div>
+
+<!--
+    MULTIPLE TIMES
+-->
+
+<div class="ui raised segment">
+    <ul [ngSwitch]="choice">
+        <li *ngSwitchCase="1">First choice</li>
+        <li *ngSwitchCase="2">Second choice</li>
+        <li *ngSwitchCase="3">Third choice</li>
+        <li *ngSwitchCase="4">Fourth choice</li>
+        <li *ngSwitchCase="2">Second choice, again</li> <!-- it will also render when case = 2-->
+        <li *ngSwitchDefault>Default choice</li>
+    </ul>
+</div>

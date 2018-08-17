@@ -1,0 +1,12 @@
+<div [style.background-color]="'yellow'"> Uses fixed yellow background
+</div>
+
+<div [ngStyle]="{color: 'white', 'background-color': 'blue'}"> Uses fixed white text on blue background
+</div>
+
+<span [ngStyle]="{color: 'red'}" [style.font-size.px]="fontSize"> <!--this is how we specify units-->
+        red text </span>
+<span [style.height.%]="100"></span>
+
+<div [ngClass]="{bordered: false}">This is never bordered</div>
+<div [ngClass]="{bordered: true}">This is always bordered</div>
