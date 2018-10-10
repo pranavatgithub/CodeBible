@@ -1,29 +1,38 @@
 <style>
-    .container{
+    .container {
         display: flex;
         border: 1px solid red;
-        flex-direction: row; /* axis will be horizontal .. if column then vertical  here contents will be placed horizontally in addition there are row-reverse; column-reverse etc*/
+        flex-direction: row;
+        /* axis will be horizontal .. if column then vertical  here contents will be placed horizontally in addition there are row-reverse; column-reverse etc*/
         justify-content: center;
-        align-items: stretch; /* allign items in the div vertically (cross axis)(in flex-dir:row) & vice versa deault is stretch(full size), then center, flex-start , end etc are there*/
-        flex-wrap: wrap; /*tells that need to accomodate all items in one row/column(based on dir)*/
-        flex-shrink: 1; /*ratio of how much an item can shrink if the parent container don't have mentioned with to acomodate childs*/
-        flex-grow: 1; /*opp of flex-shrink how much an item can grow if parent increases*/
-        flex-basis: 10em; /*initial value of an item before applying flexgrow shrink*/
+        align-items: stretch;
+        /* allign items in the div vertically (cross axis)(in flex-dir:row) & vice versa deault is stretch(full size), then center, flex-start , end etc are there*/
+        flex-wrap: wrap;
+        /*tells that need to accomodate all items in one row/column(based on dir)*/
+        flex-shrink: 1;
+        /*ratio of how much an item can shrink if the parent container don't have mentioned with to acomodate childs*/
+        flex-grow: 1;
+        /*opp of flex-shrink how much an item can grow if parent increases*/
+        flex-basis: 10em;
+        /*initial value of an item before applying flexgrow shrink*/
     }
-    .container > div{
+
+    .container>div {
         border: 1px solid goldenrod;
         padding: 30px;
     }
-    .B{
+
+    .B {
         /* margin-left: auto;  if u want to allign B & C to RHS do like this and remove flex-dir & justify from container*/
     }
 </style>
+
 <body>
-<div class="container">
-    <div class="A">A</div>
-    <div class="B">B</div>
-    <div class="C">C</div>
-</div>
+    <div class="container">
+        <div class="A">A</div>
+        <div class="B">B</div>
+        <div class="C">C</div>
+    </div>
 </body>
 <!--
     Use case :-
@@ -89,23 +98,25 @@
 -->
 <style>
     #box-container {
-      display: flex;
-      height: 500px;
+        display: flex;
+        height: 500px;
     }
+
     #box-1 {
-      background-color: dodgerblue;
-      flex: 2 2 150px; /*FLEX__/Grow-Shrink-Basis*/
-      height: 200px;
+        background-color: dodgerblue;
+        flex: 2 2 150px;
+        /*FLEX__/Grow-Shrink-Basis*/
+        height: 200px;
     }
-  
+
     #box-2 {
-      background-color: orangered;
-      flex: 1 1 150px;
-      height: 200px;
+        background-color: orangered;
+        flex: 1 1 150px;
+        height: 200px;
     }
-  </style>
-  
-  <div id="box-container">
+</style>
+
+<div id="box-container">
     <div id="box-1"></div>
     <div id="box-2"></div>
-  </div>
+</div>
