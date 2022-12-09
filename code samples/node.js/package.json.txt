@@ -1,8 +1,15 @@
 Its a JSON Format
 
-Mandatory fields; name & version
+Mandatory fields; "name" & "version"
 
 other keys
 
+"version": "1.0.1" || "MAJOR.MINOR.PATCH"  uses Semantic Versioning (SemVer),
 "author"
 "description"
+"keywords": [ "descriptive", "related", "words" ] related keywords
+"license": "MIT" | "BSD"
+"dependencies": { 
+    "package-name": "version",
+    "express": "4.14.0"
+}
