@@ -1,0 +1,8 @@
+Its a JSON Format
+
+Mandatory fields; name & version
+
+other keys
+
+"author"
+"description"
