@@ -1,1 +1,14 @@
 Node.js is a JavaScript runtime that allows developers to write backend (server-side) programs in JavaScript
+
+var myApp = require('./myApp'); // on initial file will invoke this file on init
+
+where myApp.js is
+
+let express = require('express');
+let app = express();
+console.log("Hello World"); // It will Work!!
+app.get("/", function(req, resp) {
+    resp.send("Hello Express");
+    resp.sendFile(__dirname+ '/views/index.html');
+})
+module.exports = app;
