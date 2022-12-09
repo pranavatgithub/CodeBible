@@ -1,0 +1,1 @@
+Node.js is a JavaScript runtime that allows developers to write backend (server-side) programs in JavaScript
