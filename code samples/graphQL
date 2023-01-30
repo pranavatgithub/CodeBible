@@ -22,3 +22,19 @@ What problem does it solve??
   Way 3.
       /users/14/friends_with_positions_companies 
       ( Definitley this is breaking the REST framework! )
+      
+ Now What is GraphQL
+ 
+ Graph:- A datastructure which contains nodes & relation between the nodes (called edges).
+ 
+ Example query to solve above problem
+
+  query: {
+      user( { id:"14" } ){
+          friends {
+              company {
+                name
+              }
+          }
+      }
+  }
