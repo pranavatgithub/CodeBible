@@ -1,2 +1,24 @@
 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. 
-GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+GraphQL provides a complete and understandable description of the data in your API, 
+gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+
+
+What problem does it solve??
+
+1. Highly Relational Database with RESTful APIs are pain to design! 
+  Assume i have a user id: 14 & friends & friends have companies & positions (seperate table), to fetch and display this info
+  way 1. 
+      /users/14/friends/
+      /users/14/friends/companies
+      /users/14/friends/positions
+       (3 APIs and then combine in frontend)
+  Way 2.
+      /users/14/friends/  assume 2 friends 1 & 2
+      /users/1/companies
+      /users/1/positions
+      /users/2/companies
+      /users/s/positions
+     ( N number of APIs!! )
+  Way 3.
+      /users/14/friends_with_positions_companies 
+      ( Definitley this is breaking the REST framework! )
