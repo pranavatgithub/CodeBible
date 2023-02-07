@@ -160,6 +160,8 @@ var a = [
 //REDUCE
 //---------------------------------------
 
+array.reduce((accumulator, value, index, array) => {}, initialAccumulatorValue)
+
 var array = [4, 5, 6, 7, 8];
 var singleVal = 0;
 
