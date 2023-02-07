@@ -1,0 +1,23 @@
+Class Based Component
+
+Mounting phase
+
+constructor()
+static getDerivedStateFromProps(props, state)
+render()
+componentDidMount()
+
+
+Updating phase
+
+static getDerivedStateFromProps(props, state)
+shouldComponentUpdate(nextProps, nextState)
+render()
+getSnapshotBeforeUpdate(prevProps, prevState) //its return value will be passed to componentDidUpdate 3rd arg (snapshot)
+componentDidUpdate(prevProps, prevState, snapshot) // will not be invoked if shouldComponentUpdate() returns false.
+
+
+other methods
+
+static getDerivedStateFromError(error) // may be we can define an error fallback if we return some new State
+componentDidCatch(error, info) // error- erro & info- An object with a componentStack
