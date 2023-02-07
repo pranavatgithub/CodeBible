@@ -1,5 +1,19 @@
 concept of state
 =============================================================
+
+
+state update can be done using a updater function or an object
+
+this.setState((state, props) => {
+  return {counter: state.counter + props.step}; // if depends on prevState value use like this, else we may end up with bugs! batching inconsistency
+});
+
+
+this.setState({quantity: 2})
+
+
+==============================================================
+
 //external fn
 
 function CreateList(item) {
