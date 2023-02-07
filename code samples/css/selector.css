@@ -1,0 +1,3 @@
+article:nth-of-type(3n) {
+  // choose every 3rd item in a list of articles
+}
