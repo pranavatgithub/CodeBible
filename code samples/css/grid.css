@@ -1,0 +1,15 @@
+parent
+
+.container{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  // grid-template-columns: [first] 2fr [second] 1fr [third] 1fr [last]; we can give names too!
+  column-gap: 65px; 
+}
+
+Child
+
+.child{
+  grid-column-start: first;
+  grid-column-end: 2
+}
