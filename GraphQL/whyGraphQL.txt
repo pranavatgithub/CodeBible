@@ -17,7 +17,7 @@ What problem does it solve??
       /users/1/companies
       /users/1/positions
       /users/2/companies
-      /users/s/positions
+      /users/2/positions
      ( N number of APIs!! )
   Way 3.
       /users/14/friends_with_positions_companies 
