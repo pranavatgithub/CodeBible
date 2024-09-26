@@ -1,0 +1,66 @@
+Events
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.pageX  //The distance (in pixels) of the mouse pointer from the left edge of the browser window.
+2.pageY  //The distance (in pixels) of the mouse pointer from the top edge of the browser window.
+3.screenX //The distance (in pixels) of the mouse pointer from the left edge of the monitor.
+4.screenY // "" top edge
+5.shiftKey //shift key pressed?
+6.which // which key pressed?
+7.target // which element is clicked/dragged etc
+8.data //
+9.preventDefault(); //alternatively u can put return false also in a click function etc to stop its default behaviour
+10.stopPropagation();//prevt imediate bubbling(div-->has click fun , image inside div-->has click fun ,image on click-->image click fun + div click to prevent this useit)
+
+
+USAGE
+------------------------------------------
+
+$(document).click(function(evt) {  //evt is just a variable name u can use event eveeeent .....etc names
+var xPos = evt.pageX;
+var yPos = evt.pageY;
+alert('X:' + xPos + ' Y:' + yPos);
+}); 
+
+
+
+
+off() function
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+$('.tabButton').off('click'); //unbind click event of .tabButton
+$('a').off('mouseover'); 
+$('a').off(); // remove all events attached with 'a'
+
+on() function
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SYNTAX
+-----------------------
+
+$('#selector').on('click', selector, myData, functionName);  //syntax 1.event 2.selector(optional),3.data to pass to event 4.callback fun
+
+DATA PASSING 
+------------------------------
+var linkVar = { message:'Hello from a link'};  //data to pass is either variable/object
+var pVar = { message:'Hello from a paragraph'};
+function showMessage(evt) {
+alert(evt.data.message);
+}
+$('a').on('mouseover',linkVar,showMessage);
+$('p').on('click',pVar,showMessage);
+
+Multiple events in 1 on()
+-------------------------------------------
+
+$(document).on('click keypress', function() {
+$('#lightbox').hide();
+}); // end on
+
+on on dynamic appending elems
+------------------------------------------------
+
+$(‘ul’).on(‘click’, ‘li’, function() {    //ul is just a container,here li is selected and event handler attached to it $(this) inside fun() refers to li not ul
+$(this).css(‘text-decoration’: ‘line-through’);
+});
+

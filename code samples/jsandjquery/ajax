@@ -1,0 +1,75 @@
+1) AJAX EXAMPLE
+----------------
+
+JQ LOAD
+--------------------
+
+$('#headlines').load('todays_news.html #news');  //u can even specify which portion of the page to be loaded ..here everything is loaded but only #news is appended
+
+AJAX SYNTAX
+=============
+
+get()
+------
+$.get('rateMovie.php','rating=5'); //3args[] 1.url,2.data,3.callback
+
+post()
+-------
+
+$.post('rateMovie.php','rating=5'); // same effect as rateMovie.php?rating=5
+
+$.post('rateMovie.php','rating=5&user=Bob'); //more than 2 data to server
+
+$.post('rankMovie.php', { rating: 5 }); //object as data
+
+var data = {
+rating: 5,
+user: 'Bob'
+}
+$.post('rankMovie.php', data);  //data as multi object
+
+$.get(url, data, successFunction).error(errorFunction); //error and success in get()
+
+function errorResponse() {
+var errorMsg = "Your vote could not be processed right now. ";
+errorMsg += "Please try again later.";
+$('#message').html(errorMsg);
+}
+
+data conversion---------<<<>>
+
+'favFood=Mac & Cheese' ------->>>>>> 'favFood=Mac%20%26%20Cheese' becoz & ' ' are not valid
+
+
+$.ajax({
+                        url: "${pageContext.request.contextPath}/service/getInfo.htm",
+                        method: "GET",
+                        dataType: 'text',
+                        data: {
+                            serviceName: a
+                        },
+                        success: function (data) {
+
+                            z = data;
+                            z=vkbeautify.xml(z);
+                            var y = colorXml(z);
+                            $(".tab" + tabnumber).append(y);
+                            $("#home").removeClass("active");
+                            $("#indextab").removeClass("active");
+                            $("." + a).addClass("active");
+                            $("#tab" + tabnumber).addClass("active");
+                            tabnumber++;
+
+                        }
+                    });
+
+
+STATUS CODE
+----------------------------------------------------------
+$.ajax({
+  statusCode: {
+    404: function() {
+      alert( "page not found" );
+    }
+  }
+});

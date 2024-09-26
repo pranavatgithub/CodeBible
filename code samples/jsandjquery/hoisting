@@ -1,0 +1,48 @@
+//All declarations are hoisted up how??
+
+a = 2; // whenever it sees var a, it automatically creates var a before so var a; statement hosisted up
+var a;
+console.log( a );  // 2 
+
+//actual result of above code
+
+var a;
+a = 2;
+console.log(a);
+
+//--------------------
+
+function test(){
+    console.log(a); // undefined
+    var a = 10;
+}
+
+//actual result of above fn
+
+function test(){
+    var a;
+    console.log(a); // undefined
+    var a = 10;
+}
+
+//note::- in functions vs variable  war function wins like crazy
+
+foo(); // 1
+var foo;
+function foo() { // this one hoisted to top (if one more function foo() coming later it will replace this)
+    console.log( 1 );
+}
+foo = function() { // this variable dont take precedence !
+    console.log( 2 );
+};
+
+// hoisting in block scope
+
+foo(); // "b" Y?? it won't work like conditional workings.
+var a = true;
+if (a) {
+    function foo() { console.log( "a" ); } // will hoist to enclosing block to top
+}
+else {
+    function foo() { console.log( "b" ); } // will hoist to enclosing block to top
+}

@@ -1,0 +1,13 @@
+take a copy of an element
+---------------------------------
+
+$('span.pq').each(function() {
+var quote=$(this).clone();
+quote.removeClass('pq');
+quote.addClass('pullquote');
+});
+
+copy and paste to some other place
+----------------------------------
+    $("#target5").clone().appendTo("#left-well"); //take a copy of target5 and appending to left-well( not cut paste both are kept)
+ 

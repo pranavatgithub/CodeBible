@@ -1,0 +1,22 @@
+try{throw 2}catch(a){ //thrown item is catched
+console.log( a ); // 2
+}
+console.log( a ); //undefined  that means they implemented block scope variable in catch block in ES3 itself , 
+//but we got block scope variables in ES6 in the form of let,const etc ,, so sad!
+
+// finally
+
+function foo() {
+try {
+    return 42;
+}
+finally {
+    console.log( "Hello" );
+}
+console.log( "never runs" );
+}
+console.log( foo() );
+// Hello -- try finished immediately finally called and function is done
+// 42
+
+if i write return in finally it will take precedence over the try block

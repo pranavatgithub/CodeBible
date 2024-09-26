@@ -1,0 +1,39 @@
+example-"How many spaces"??
+====================================================================
+
+var testString = "How many spaces are there in this sentence?";
+
+var expression = /\s+/g;  // \s stands for whitespace 
+
+// This code counts the matches of expression in testString
+var spaceCount = testString.match(expression).length;  // 7
+
+=====================================================================
+
+example-string match
+=======================================================================
+var expression = /and/gi;  // /is the start 2nd /is the end ,and is the text to find ,g is all over the sentence,i is case is not a problem
+// This code counts the matches of expression in testString
+var andCount = testString.match(expression).length;
+
+example-number search 
+=========================================================================
+var testString = "There are 3 cats but 4 dogs.";
+
+var expression = /\d+/g;  // \d+ is mandatory
+// This code counts the matches of expression in testString
+var digitCount = testString.match(expression).length;
+
+example-invert operation
+======================================================================================
+
+var expression = /\S/g;  // capital S ok? \s stands for whitespace \S stands for NOT whitespace
+
+
+// This code counts the matches of expression in testString
+var nonSpaceCount = testString.match(expression).length; return 49
+
+remove all alphanumeric items
+=================================================================================================
+
+str=str.replace(/[^A-Za-z0-9]/g, '') // anything other than a-z A-Z 0-9 will be removed 

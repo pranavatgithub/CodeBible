@@ -1,0 +1,45 @@
+wrap //unwrap .....
+
+====================
+
+$('#example').wrap('<div id="outer"><div id="inner"></div></div>');      
+
+result--->>
+<div id="outer">
+<div id="inner">
+<div id="example">This is the original code on the page</div>
+</div>
+</div>
+
+
+$('#outer').wrapInner('<div id="inner"></div>');
+---------------------------------------------------
+
+i/p:-
+
+<div id="outer">
+<p>This is the contents of outer</p>
+</div>
+
+result--->
+
+<div id="outer">
+<div id="inner">
+<p>This is the contents of outer</p>
+</div>
+</div>
+
+$('p').unwrap()
+--------------------
+
+$('p').unwrap()
+
+i/p:-
+<div>
+<p>a paragraph</p>
+<div>
+
+o/p
+
+<p>a paragraph</p>
+

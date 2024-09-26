@@ -1,0 +1,5 @@
+keyboard events
+--------------------------------
+1)keypress  //when key is pressed\holded down (like car race case)
+2)keydown  //just 1 press
+3)keyup   //after releasing key

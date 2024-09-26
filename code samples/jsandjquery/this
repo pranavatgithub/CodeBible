@@ -1,0 +1,231 @@
+//this is not like what u expect.. this is a whole amazing thing
+// this is neither a reference to the function itself, nor is it a reference to the function's lexical scope.
+//==================================================================
+function foo() { //GLOBAL FN
+    console.log(this.bar);
+}
+
+var bar = "global";
+
+var obj1 = {
+    bar: "obj1",
+    foo: foo
+};
+
+var obj2 = {
+    bar: "obj2"
+};
+
+// --------
+
+foo(); // "global" in strict mode else undefined 
+
+obj1.foo(); // "obj1"
+
+foo.call(obj2); // "obj2"
+
+new foo(); // undefined
+
+// Use cases
+
+function foo(num) {
+    console.log("foo: " + num);
+    // keep track of how many times `foo` is called
+    this.count++;
+}
+foo.count = 0;
+var i;
+for (i = 0; i < 10; i++) {
+    if (i > 5) {
+        foo(i);
+    }
+}
+// foo: 6
+// foo: 7
+// foo: 8
+// foo: 9
+// how many times was `foo` called?
+console.log(foo.count); // 0 -- WTF?
+
+// the reason is this in foo() is refering to that for loop not to foo();
+
+// solution??
+
+function foo(num) {
+    console.log("foo: " + num);
+    // keep track of how many times `foo` is called
+    // Note: `this` IS actually `foo` now, based on
+    // how `foo` is called (see below)
+    this.count++; // foo.count++; also works if u avoid the call() in bottom
+}
+foo.count = 0;
+var i;
+for (i = 0; i < 10; i++) {
+    if (i > 5) {
+        // using `call(..)`, we ensure the `this`
+        // points at the function object (`foo`) itself
+        foo.call(foo, i); // call the fn wrt foo fn object + value i , we binded the this in foo() to foo();  
+    }
+}
+// foo: 6
+// foo: 7
+// foo: 8
+// foo: 9
+// how many times was `foo` called?
+console.log(foo.count); // 4
+
+
+// some rules
+
+//1.
+//callsite matters! default binding
+
+function foo() {
+    console.log(this.a);
+}
+var a = 2;
+foo(); // 2  call-site is global . default binding no other rules are applicable
+
+//2.
+// strict mode
+
+function foo() {
+    "use strict";
+    console.log(this.a);
+}
+var a = 2;
+foo(); // TypeError: `this` is `undefined`  it won't consider the call site since its in strict mode
+
+//note nothing will happen if call site foo() is in strict mode, it will work as normal in case 1
+
+function foo() {
+    console.log(this.a);
+}
+var a = 2;
+(function () {
+    "use strict";
+    foo(); // 2
+})();
+
+// 3.
+//When there is a context object for a function reference,(here obj) the
+//implicit binding rule says that it's that object which should be used for the function call's
+//this binding.
+
+function foo() {
+    console.log(this.a);
+}
+var a = 10; // no matter Waste poor variable!
+var obj = {
+    a: 2,
+    foo: foo
+};
+obj.foo(); // 2
+
+//nested example
+
+function foo() {
+    console.log(this.a);
+}
+var obj2 = {
+    a: 42,
+    foo: foo
+};
+var obj1 = {
+    a: 2,
+    obj2: obj2
+};
+obj1.obj2.foo(); // 42  OK??
+
+//one jerky example
+
+function foo() {
+    console.log(this.a);
+}
+var obj = {
+    a: 2,
+    foo: foo
+};
+var bar = obj.foo; // function reference/alias!
+var a = "oops, global"; // `a` also property on global object
+bar(); // "oops, global" call-site is important , this is a plain, un-decorated call and thus the default binding applies.
+
+//similar example
+
+function foo() {
+    console.log(this.a);
+}
+
+function doFoo(fn) {
+    // `fn` is just another reference to `foo`
+    fn(); // <-- call-site!
+}
+var obj = {
+    a: 2,
+    foo: foo
+};
+var a = "oops, global"; // `a` also property on global object
+doFoo(obj.foo); // "oops, global"
+
+// 4. explicit binding --- we are specifying what is 'this' explicitly
+
+function foo() {
+    console.log(this.a);
+}
+var obj = {
+    a: 2
+};
+foo.call(obj); // 2 first arg is the obj that we are asking the method to use in its context 
+// so here foo() will work on behalf of obj --so here 'this' = obj
+
+// 5 hard binding apply
+
+function foo(something) {
+    console.log(this.a, something);
+    return this.a + something;
+}
+var obj = {
+    a: 2
+};
+var bar = function () {
+    return foo.apply(obj, arguments); // obj object to use & args are the passed args 
+};
+var b = bar(3); // 2 3
+console.log(b); // 5
+
+// variation
+
+function foo(something) {
+    console.log(this.a, something);
+    return this.a + something;
+}
+var obj = {
+    a: 2
+};
+var bar = foo.bind(obj);
+var b = bar(3); // 2 3
+console.log(b); // 5
+
+/*
+  DETERMINING THIS
+*/
+
+/*
+
+1. Is the function called with new (new binding)? If so, this is the newly constructed
+object.
+var bar = new foo(); this will be depend on bar
+
+2. Is the function called with call or apply (explicit binding), even hidden inside a
+bind hard binding? If so, this is the explicitly specified object.
+var bar = foo.call( obj2 )  this will be depend on obj2
+
+3. Is the function called with a context (implicit binding), otherwise known as an owning
+or containing object? If so, this is that context object.
+var bar = obj1.foo()  this will be depend on obj1
+
+4. Otherwise, default the this (default binding). If in strict mode , pick undefined ,
+otherwise pick the global object.
+var bar = foo()
+
+*/

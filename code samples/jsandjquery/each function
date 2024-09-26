@@ -1,0 +1,5 @@
+//find all a tags and do operation on each and every item
+
+$('a[href^=http://]').each(function() {
+var extLink = $(this).attr('href');
+});

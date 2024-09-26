@@ -1,0 +1,7 @@
+JQuery css application
+-----------------------------------
+
+$('#highlightedDiv').css({
+	'background-color' : '#FF0000',
+	'border' : '2px solid #FE0037'
+});
