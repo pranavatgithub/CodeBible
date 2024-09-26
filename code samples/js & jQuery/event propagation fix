@@ -1,8 +1,0 @@
-1) MULTI TRIGGERING OF EVENTS FIX
---------------------------------
-
-
-   $(".closetab").click(function (event) {
-                event.stopImmediatePropagation();
-
-            });

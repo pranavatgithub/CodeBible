@@ -1,4 +1,0 @@
-
-$("div").attr("testattr","attrval"); //add attribute to div
-
-$('body').removeAttr('bgColor');  //remove an attribute from body
